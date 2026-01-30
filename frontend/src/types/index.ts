@@ -94,13 +94,17 @@ export interface ProfileUpdate {
   name?: string;
   name_kana?: string;
   name_vi?: string;
-  age?: number;
+  date_of_birth?: string;
   school?: string;
   graduation_year?: number;
   field?: string;
   work_experience?: string;
   japan_residence?: string;
   japanese_level?: string;
+  email?: string;
+  phone?: string;
+  address?: string;
+  social_links?: SocialLinks;
 }
 
 export interface SkillCreate {

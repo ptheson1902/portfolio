@@ -196,16 +196,25 @@ export const ProfileSection: React.FC = () => {
                 </div>
                 <div className="flex-1">
                   <p className="text-xs text-slate-500 dark:text-slate-400">
-                    {language === 'ja' ? '年齢' : language === 'vi' ? 'Tuổi' : 'Age'}
+                    {language === 'ja' ? '生年月日' : language === 'vi' ? 'Ngày sinh' : 'Date of Birth'}
                   </p>
-                  <p className="font-medium text-slate-900 dark:text-slate-100">
-                    {profile.age}{language === 'ja' ? '歳' : language === 'vi' ? ' tuổi' : ' years old'}
-                    {profile.date_of_birth && (
-                      <span className="text-xs text-slate-500 ml-1">
-                        ({profile.date_of_birth})
-                      </span>
-                    )}
-                  </p>
+                  {isEditMode ? (
+                    <InlineEdit
+                      value={profile.date_of_birth || ''}
+                      onSave={async (value) => handleUpdateProfile('date_of_birth', value)}
+                      className="font-medium"
+                      placeholder="YYYY-MM-DD"
+                    />
+                  ) : (
+                    <p className="font-medium text-slate-900 dark:text-slate-100">
+                      {profile.date_of_birth || '-'}
+                      {profile.age > 0 && (
+                        <span className="text-slate-500 ml-2">
+                          ({profile.age}{language === 'ja' ? '歳' : language === 'vi' ? ' tuổi' : ' years old'})
+                        </span>
+                      )}
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -302,69 +311,151 @@ export const ProfileSection: React.FC = () => {
               </div>
 
               {/* Address */}
-              {profile.address && (
-                <div className="flex items-center space-x-3">
-                  <div className="text-primary-600 dark:text-primary-400">
-                    <Globe2 className="w-5 h-5" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-xs text-slate-500 dark:text-slate-400">
-                      {language === 'ja' ? '住所' : language === 'vi' ? 'Địa chỉ' : 'Address'}
-                    </p>
-                    <p className="font-medium text-slate-900 dark:text-slate-100">
-                      {profile.address}
-                    </p>
-                  </div>
+              <div className="flex items-center space-x-3">
+                <div className="text-primary-600 dark:text-primary-400">
+                  <Globe2 className="w-5 h-5" />
                 </div>
-              )}
+                <div className="flex-1">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    {language === 'ja' ? '住所' : language === 'vi' ? 'Địa chỉ' : 'Address'}
+                  </p>
+                  {isEditMode ? (
+                    <InlineEdit
+                      value={profile.address || ''}
+                      onSave={async (value) => handleUpdateProfile('address', value)}
+                      className="font-medium"
+                      placeholder={language === 'ja' ? '住所を入力' : 'Enter address'}
+                    />
+                  ) : (
+                    <p className="font-medium text-slate-900 dark:text-slate-100">
+                      {profile.address || '-'}
+                    </p>
+                  )}
+                </div>
+              </div>
 
               {/* Email */}
-              {profile.email && (
-                <div className="flex items-center space-x-3">
-                  <div className="text-primary-600 dark:text-primary-400">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-xs text-slate-500 dark:text-slate-400">Email</p>
+              <div className="flex items-center space-x-3">
+                <div className="text-primary-600 dark:text-primary-400">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Email</p>
+                  {isEditMode ? (
+                    <InlineEdit
+                      value={profile.email || ''}
+                      onSave={async (value) => handleUpdateProfile('email', value)}
+                      className="font-medium"
+                      placeholder="email@example.com"
+                    />
+                  ) : profile.email ? (
                     <a
                       href={`mailto:${profile.email}`}
                       className="font-medium text-primary-600 dark:text-primary-400 hover:underline"
                     >
                       {profile.email}
                     </a>
-                  </div>
+                  ) : (
+                    <p className="font-medium text-slate-900 dark:text-slate-100">-</p>
+                  )}
                 </div>
-              )}
+              </div>
 
               {/* Phone */}
-              {profile.phone && (
-                <div className="flex items-center space-x-3">
-                  <div className="text-primary-600 dark:text-primary-400">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-xs text-slate-500 dark:text-slate-400">
-                      {language === 'ja' ? '電話番号' : language === 'vi' ? 'Số điện thoại' : 'Phone'}
-                    </p>
+              <div className="flex items-center space-x-3">
+                <div className="text-primary-600 dark:text-primary-400">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    {language === 'ja' ? '電話番号' : language === 'vi' ? 'Số điện thoại' : 'Phone'}
+                  </p>
+                  {isEditMode ? (
+                    <InlineEdit
+                      value={profile.phone || ''}
+                      onSave={async (value) => handleUpdateProfile('phone', value)}
+                      className="font-medium"
+                      placeholder="080-1234-5678"
+                    />
+                  ) : profile.phone ? (
                     <a
                       href={`tel:${profile.phone}`}
                       className="font-medium text-primary-600 dark:text-primary-400 hover:underline"
                     >
                       {profile.phone}
                     </a>
-                  </div>
+                  ) : (
+                    <p className="font-medium text-slate-900 dark:text-slate-100">-</p>
+                  )}
                 </div>
-              )}
+              </div>
             </div>
 
             {/* Social Links */}
-            {profile.social_links && (
-              <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
-                <p className="text-xs text-slate-500 dark:text-slate-400 mb-2">
-                  {language === 'ja' ? 'SNS' : language === 'vi' ? 'Mạng xã hội' : 'Social'}
-                </p>
+            <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
+              <p className="text-xs text-slate-500 dark:text-slate-400 mb-2">
+                {language === 'ja' ? 'SNS' : language === 'vi' ? 'Mạng xã hội' : 'Social'}
+              </p>
+              {isEditMode ? (
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Facebook className="w-5 h-5 text-blue-600" />
+                    <InlineEdit
+                      value={profile.social_links?.facebook || ''}
+                      onSave={async (value) => {
+                        const success = await updateProfile({
+                          social_links: {
+                            facebook: value || undefined,
+                            messenger: profile.social_links?.messenger,
+                            github: profile.social_links?.github
+                          }
+                        });
+                        if (success) await refetch();
+                      }}
+                      className="flex-1 text-sm"
+                      placeholder="https://facebook.com/username"
+                    />
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MessageCircle className="w-5 h-5 text-purple-600" />
+                    <InlineEdit
+                      value={profile.social_links?.messenger || ''}
+                      onSave={async (value) => {
+                        const success = await updateProfile({
+                          social_links: {
+                            facebook: profile.social_links?.facebook,
+                            messenger: value || undefined,
+                            github: profile.social_links?.github
+                          }
+                        });
+                        if (success) await refetch();
+                      }}
+                      className="flex-1 text-sm"
+                      placeholder="https://m.me/username"
+                    />
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Github className="w-5 h-5 text-slate-700 dark:text-slate-300" />
+                    <InlineEdit
+                      value={profile.social_links?.github || ''}
+                      onSave={async (value) => {
+                        const success = await updateProfile({
+                          social_links: {
+                            facebook: profile.social_links?.facebook,
+                            messenger: profile.social_links?.messenger,
+                            github: value || undefined
+                          }
+                        });
+                        if (success) await refetch();
+                      }}
+                      className="flex-1 text-sm"
+                      placeholder="https://github.com/username"
+                    />
+                  </div>
+                </div>
+              ) : (
                 <div className="flex gap-3">
-                  {profile.social_links.facebook && (
+                  {profile.social_links?.facebook && (
                     <a
                       href={profile.social_links.facebook}
                       target="_blank"
@@ -375,7 +466,7 @@ export const ProfileSection: React.FC = () => {
                       <Facebook className="w-5 h-5" />
                     </a>
                   )}
-                  {profile.social_links.messenger && (
+                  {profile.social_links?.messenger && (
                     <a
                       href={profile.social_links.messenger}
                       target="_blank"
@@ -386,7 +477,7 @@ export const ProfileSection: React.FC = () => {
                       <MessageCircle className="w-5 h-5" />
                     </a>
                   )}
-                  {profile.social_links.github && (
+                  {profile.social_links?.github && (
                     <a
                       href={profile.social_links.github}
                       target="_blank"
@@ -397,9 +488,12 @@ export const ProfileSection: React.FC = () => {
                       <Github className="w-5 h-5" />
                     </a>
                   )}
+                  {!profile.social_links?.facebook && !profile.social_links?.messenger && !profile.social_links?.github && (
+                    <p className="text-slate-500 dark:text-slate-400 text-sm">-</p>
+                  )}
                 </div>
-              </div>
-            )}
+              )}
+            </div>
 
             {/* Export Buttons */}
             <div className="mt-6 pt-4 border-t border-slate-200 dark:border-slate-700">
