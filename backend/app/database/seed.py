@@ -18,8 +18,8 @@ def get_initial_data():
         "school": "ECCコンピュータ専門学校",
         "graduation_year": 2022,
         "field": "WEB開発（フルスタック）、システム開発",
-        "work_experience": "4年",
-        "japan_residence": "9年",
+        "work_experience": {"ja": "5年", "vi": "5 năm", "en": "5 years"},
+        "japan_residence": {"ja": "9年", "vi": "9 năm", "en": "9 years"},
         "japanese_level": "N2",
         "email": "ptheson1902@gmail.com",
         "phone": "080-1234-5678",
@@ -37,7 +37,7 @@ def get_initial_data():
             "ja": """【強み】チームリーダー × BrSE × フルスタック × AI開発
 
 ■ 経歴
-2017年にベトナムから来日。日本語学校（2年）→ ECCコンピュータ専門学校（3年）を経て、日系IT企業で1年間の実務経験を積みました。現在はベトナム系IT企業（3年目）にて、日本向けプロジェクトを担当しています。
+2017年にベトナムから来日。日本語学校（2年）→ ECCコンピュータ専門学校（3年）を経て、日系IT企業で1年間の実務経験を積みました。現在はベトナム系IT企業（4年目）にて、日本向けプロジェクトを担当しています。
 
 ■ リーダーシップ経験
 直近のAIを活用した自動レジ精算システムでは、5名のチームリーダーとして基本設計から運用保守まで一貫して担当。技術選定、アーキテクチャ設計、コードレビュー、メンバー育成を通じて、プロジェクトを成功に導きました。
@@ -56,7 +56,7 @@ YOLOによるリアルタイム物体検出、Qdrant Vector DBによるベクト
             "vi": """【Điểm mạnh】Team Leader × BrSE × Fullstack × AI Development
 
 ■ Quá trình
-Đến Nhật năm 2017. Trường tiếng Nhật (2 năm) → Trường chuyên môn ECC Computer (3 năm) → Công ty IT Nhật Bản (1 năm). Hiện tại đang làm việc tại công ty IT Việt Nam (năm thứ 3), phụ trách các dự án cho khách hàng Nhật Bản.
+Đến Nhật năm 2017. Trường tiếng Nhật (2 năm) → Trường chuyên môn ECC Computer (3 năm) → Công ty IT Nhật Bản (1 năm). Hiện tại đang làm việc tại công ty IT Việt Nam (năm thứ 4), phụ trách các dự án cho khách hàng Nhật Bản.
 
 ■ Kinh nghiệm Leadership
 Trong dự án Hệ thống thanh toán tự động AI gần đây nhất, với vai trò Team Leader của nhóm 5 người, tôi phụ trách từ thiết kế cơ bản đến vận hành bảo trì. Dẫn dắt dự án thành công thông qua lựa chọn công nghệ, thiết kế kiến trúc, code review và đào tạo thành viên.
@@ -75,7 +75,7 @@ Trở thành kỹ sư có thể đóng góp cho sự phát triển của team v�
             "en": """【Strengths】Team Leader × BrSE × Fullstack × AI Development
 
 ■ Career Path
-Came to Japan in 2017. Japanese Language School (2 years) → ECC Computer College (3 years) → Japanese IT Company (1 year). Currently working at a Vietnamese IT company (3rd year), handling projects for Japanese clients.
+Came to Japan in 2017. Japanese Language School (2 years) → ECC Computer College (3 years) → Japanese IT Company (1 year). Currently working at a Vietnamese IT company (4th year), handling projects for Japanese clients.
 
 ■ Leadership Experience
 In the recent AI-powered Automatic Checkout System project, I led a team of 5 as Team Leader, handling everything from basic design to operation & maintenance. Successfully delivered the project through technology selection, architecture design, code review, and team mentoring.
@@ -96,38 +96,38 @@ I aim to be an engineer who contributes to team and product growth, combining te
 
     skills_data = {
         "programming_languages": [
-            {"name": "C#", "level": 4, "experience": "2年7ヶ月"},
-            {"name": "JavaScript", "level": 4, "experience": "3年5ヶ月"},
-            {"name": "PHP", "level": 3, "experience": "9ヶ月"},
-            {"name": "Python", "level": 3, "experience": "1年"},
-            {"name": "Java", "level": 3, "experience": "8ヶ月"},
-            {"name": "VB.NET", "level": 3, "experience": "8ヶ月"},
+            {"name": "C#", "level": 4, "experience": {"ja": "2年7ヶ月", "vi": "2 năm 7 tháng", "en": "2y 7m"}},
+            {"name": "JavaScript", "level": 4, "experience": {"ja": "3年5ヶ月", "vi": "3 năm 5 tháng", "en": "3y 5m"}},
+            {"name": "PHP", "level": 3, "experience": {"ja": "9ヶ月", "vi": "9 tháng", "en": "9m"}},
+            {"name": "Python", "level": 3, "experience": {"ja": "1年", "vi": "1 năm", "en": "1y"}},
+            {"name": "Java", "level": 3, "experience": {"ja": "8ヶ月", "vi": "8 tháng", "en": "8m"}},
+            {"name": "VB.NET", "level": 3, "experience": {"ja": "8ヶ月", "vi": "8 tháng", "en": "8m"}},
         ],
         "frameworks": [
-            {"name": "ASP.NET Core", "level": 4, "experience": "1年1ヶ月"},
-            {"name": "VueJS", "level": 3, "experience": "1年6ヶ月"},
-            {"name": "Laravel", "level": 3, "experience": "9ヶ月"},
-            {"name": "ASP.NET MVC", "level": 3, "experience": "7ヶ月"},
-            {"name": "NodeJS", "level": 2, "experience": "6ヶ月"},
-            {"name": "ReactJS", "level": 2, "experience": "6ヶ月"},
-            {"name": "Django", "level": 2, "experience": "2ヶ月"},
+            {"name": "ASP.NET Core", "level": 4, "experience": {"ja": "1年1ヶ月", "vi": "1 năm 1 tháng", "en": "1y 1m"}},
+            {"name": "VueJS", "level": 3, "experience": {"ja": "1年6ヶ月", "vi": "1 năm 6 tháng", "en": "1y 6m"}},
+            {"name": "Laravel", "level": 3, "experience": {"ja": "9ヶ月", "vi": "9 tháng", "en": "9m"}},
+            {"name": "ASP.NET MVC", "level": 3, "experience": {"ja": "7ヶ月", "vi": "7 tháng", "en": "7m"}},
+            {"name": "NodeJS", "level": 2, "experience": {"ja": "6ヶ月", "vi": "6 tháng", "en": "6m"}},
+            {"name": "ReactJS", "level": 2, "experience": {"ja": "6ヶ月", "vi": "6 tháng", "en": "6m"}},
+            {"name": "Django", "level": 2, "experience": {"ja": "2ヶ月", "vi": "2 tháng", "en": "2m"}},
         ],
         "databases": [
-            {"name": "MySQL", "level": 4, "experience": "2年6ヶ月"},
-            {"name": "Oracle", "level": 4, "experience": "2年5ヶ月"},
-            {"name": "SQL Server", "level": 3, "experience": "10ヶ月"},
-            {"name": "PostgreSQL", "level": 3, "experience": "9ヶ月"},
-            {"name": "MongoDB", "level": 1, "experience": "6ヶ月"},
+            {"name": "MySQL", "level": 4, "experience": {"ja": "2年6ヶ月", "vi": "2 năm 6 tháng", "en": "2y 6m"}},
+            {"name": "Oracle", "level": 4, "experience": {"ja": "2年5ヶ月", "vi": "2 năm 5 tháng", "en": "2y 5m"}},
+            {"name": "SQL Server", "level": 3, "experience": {"ja": "10ヶ月", "vi": "10 tháng", "en": "10m"}},
+            {"name": "PostgreSQL", "level": 3, "experience": {"ja": "9ヶ月", "vi": "9 tháng", "en": "9m"}},
+            {"name": "MongoDB", "level": 1, "experience": {"ja": "6ヶ月", "vi": "6 tháng", "en": "6m"}},
         ],
         "cloud": [
-            {"name": "Azure", "level": 2, "experience": "9ヶ月"},
+            {"name": "Azure", "level": 2, "experience": {"ja": "9ヶ月", "vi": "9 tháng", "en": "9m"}},
         ],
         "ai_ml": [
-            {"name": "PyTorch", "level": 3, "experience": "9ヶ月"},
-            {"name": "YOLO", "level": 3, "experience": "9ヶ月"},
-            {"name": "OpenCV", "level": 3, "experience": "9ヶ月"},
-            {"name": "Qdrant", "level": 3, "experience": "9ヶ月"},
-            {"name": "ONNX", "level": 2, "experience": "9ヶ月"},
+            {"name": "PyTorch", "level": 3, "experience": {"ja": "9ヶ月", "vi": "9 tháng", "en": "9m"}},
+            {"name": "YOLO", "level": 3, "experience": {"ja": "9ヶ月", "vi": "9 tháng", "en": "9m"}},
+            {"name": "OpenCV", "level": 3, "experience": {"ja": "9ヶ月", "vi": "9 tháng", "en": "9m"}},
+            {"name": "Qdrant", "level": 3, "experience": {"ja": "9ヶ月", "vi": "9 tháng", "en": "9m"}},
+            {"name": "ONNX", "level": 2, "experience": {"ja": "9ヶ月", "vi": "9 tháng", "en": "9m"}},
         ]
     }
 
@@ -142,8 +142,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["製造", "単体テスト"],
             "start_date": "2021-06",
             "end_date": "2021-08",
-            "duration": "3ヶ月",
-            "description": {
+                        "description": {
                 "ja": "【Java】プログラム基礎の理解、課題アプリの作成\n【Oracle】SQLの理解",
                 "vi": "【Java】Hiểu cơ bản về lập trình, tạo ứng dụng bài tập\n【Oracle】Hiểu SQL",
                 "en": "[Java] Understanding programming basics, creating practice applications\n[Oracle] Understanding SQL"
@@ -169,8 +168,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["製造", "単体テスト"],
             "start_date": "2021-09",
             "end_date": "2022-01",
-            "duration": "5ヶ月",
-            "description": {
+                        "description": {
                 "ja": "入力画面の新規開発を担当しました。新規登録、修正、削除、照会の画面を作成しました。入力に必須なマスタメンテナンス画面についても対応しました。",
                 "vi": "Phụ trách phát triển mới màn hình nhập liệu. Đã tạo các màn hình đăng ký mới, sửa đổi, xóa, và tra cứu. Cũng đã xử lý màn hình bảo trì master cần thiết cho việc nhập liệu.",
                 "en": "Responsible for new development of input screens. Created screens for new registration, modification, deletion, and inquiry. Also handled master maintenance screens required for input."
@@ -196,8 +194,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["製造", "単体テスト"],
             "start_date": "2022-01",
             "end_date": "2022-07",
-            "duration": "7ヶ月",
-            "description": {
+                        "description": {
                 "ja": "画面の新規開発を担当しました。（新規登録、照会の画面の作成）バッチの作成も担当しました。",
                 "vi": "Phụ trách phát triển mới màn hình. (Tạo màn hình đăng ký mới, tra cứu) Cũng phụ trách tạo batch.",
                 "en": "Responsible for new screen development. (Creating new registration, inquiry screens) Also responsible for batch creation."
@@ -223,8 +220,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["製造", "単体テスト", "詳細設計"],
             "start_date": "2022-06",
             "end_date": "2022-08",
-            "duration": "3ヶ月",
-            "description": {
+                        "description": {
                 "ja": "ゲスト利用画面の新規開発を担当しました。（新規登録、照会、検索の画面の作成）DB更新、開発環境の作成",
                 "vi": "Phụ trách phát triển mới màn hình sử dụng cho khách. (Tạo màn hình đăng ký mới, tra cứu, tìm kiếm) Cập nhật DB, tạo môi trường phát triển",
                 "en": "Responsible for new development of guest usage screens. (Creating new registration, inquiry, search screens) DB update, development environment setup"
@@ -250,8 +246,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["製造", "単体テスト", "詳細設計"],
             "start_date": "2022-08",
             "end_date": "2023-03",
-            "duration": "8ヶ月",
-            "description": {
+                        "description": {
                 "ja": "不動産のシステム開発、案件対応",
                 "vi": "Phát triển hệ thống bất động sản, xử lý các yêu cầu dự án",
                 "en": "Real estate system development, handling project requirements"
@@ -277,8 +272,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["デザイン", "製造"],
             "start_date": "2023-04",
             "end_date": "2023-05",
-            "duration": "2ヶ月",
-            "description": {
+                        "description": {
                 "ja": "モックアップ作成を担当しました。",
                 "vi": "Phụ trách tạo mockup.",
                 "en": "Responsible for creating mockups."
@@ -304,8 +298,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["結合テスト", "Q&A対応", "詳細設計"],
             "start_date": "2023-06",
             "end_date": "2023-11",
-            "duration": "6ヶ月",
-            "description": {
+                        "description": {
                 "ja": "帳票作成、更新、出力（Excel, PDF）。データ登録：CSVインポート、マスター登録、一括登録、複製登録、母国語対応",
                 "vi": "Tạo, cập nhật, xuất báo cáo (Excel, PDF). Đăng ký dữ liệu: Import CSV, đăng ký master, đăng ký hàng loạt, đăng ký sao chép, hỗ trợ ngôn ngữ mẹ đẻ",
                 "en": "Report creation, update, output (Excel, PDF). Data registration: CSV import, master registration, bulk registration, copy registration, native language support"
@@ -331,8 +324,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["詳細設計", "コーディング", "製造", "単体テスト", "結合テスト", "総合試験", "現地試験", "運用・保守"],
             "start_date": "2023-12",
             "end_date": "2024-12",
-            "duration": "1年1ヶ月",
-            "description": {
+                        "description": {
                 "ja": "交通管制データの連携及び活用：データ管理、帳票やCSVやPDFなど出力。データ統計：データ管理、帳票やCSVやPDFなど出力。道路状況：地図上のストリームカメラの管理。無線局管理：XMLファイル作成、申請履歴の管理、納付情報の管理、ユーザ情報の管理。バッチ改善を担当しました。",
                 "vi": "Liên kết và sử dụng dữ liệu điều khiển giao thông: Quản lý dữ liệu, xuất báo cáo/CSV/PDF. Thống kê dữ liệu. Tình trạng đường: Quản lý camera stream trên bản đồ. Quản lý trạm vô tuyến: Tạo file XML, quản lý lịch sử đăng ký, quản lý thông tin thanh toán, quản lý thông tin người dùng. Cải thiện batch.",
                 "en": "Traffic control data integration and utilization: Data management, report/CSV/PDF output. Data statistics. Road conditions: Stream camera management on maps. Radio station management: XML file creation, application history management, payment info management, user info management. Batch improvement."
@@ -358,8 +350,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["コーディング", "単体テスト", "製造", "Q&A対応"],
             "start_date": "2025-01",
             "end_date": "2025-06",
-            "duration": "6ヶ月",
-            "description": {
+                        "description": {
                 "ja": "日本の顧客とオフショア開発チームのブリッジとして、要件定義、技術的な伝達、品質管理、日越間のコミュニケーションを担当。人物調査管理画面を担当。人事評価管理画面を担当。調査評価基準設定管理を担当。",
                 "vi": "Là cầu nối giữa khách hàng Nhật Bản và đội phát triển offshore, phụ trách định nghĩa yêu cầu, truyền đạt kỹ thuật, quản lý chất lượng, giao tiếp Nhật-Việt. Phụ trách màn hình quản lý điều tra nhân vật. Phụ trách màn hình quản lý đánh giá nhân sự. Phụ trách quản lý cài đặt tiêu chí đánh giá điều tra.",
                 "en": "As a bridge between Japanese clients and offshore development team, responsible for requirements definition, technical communication, quality management, Japan-Vietnam communication. Responsible for personnel investigation management screen. HR evaluation management screen. Investigation evaluation criteria setting management."
@@ -385,8 +376,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["基本設計", "詳細設計", "コーディング", "単体テスト", "結合テスト", "運用・保守"],
             "start_date": "2025-06",
             "end_date": "2026-02",
-            "duration": "9ヶ月",
-            "description": {
+                        "description": {
                 "ja": "USBカメラで撮影した商品画像をリアルタイムで認識・分類し、レジ精算を自動化するエッジAIシステム。主な機能：YOLOベースのリアルタイム商品検出、ベクトル埋め込みによる商品分類（Qdrant Vector DB）、ByteTrackによるマルチオブジェクトトラッキング、WebRTCによるリアルタイム映像配信、クラウド同期機能（商品データベース同期）、商品登録機能（新商品の画像登録・学習）",
                 "vi": "Hệ thống Edge AI nhận dạng và phân loại hình ảnh sản phẩm quay bằng camera USB theo thời gian thực, tự động hóa thanh toán. Chức năng chính: Phát hiện sản phẩm thời gian thực dựa trên YOLO, Phân loại sản phẩm bằng vector embedding (Qdrant Vector DB), Theo dõi đa đối tượng bằng ByteTrack, Phát video thời gian thực bằng WebRTC, Đồng bộ cloud, Đăng ký sản phẩm mới",
                 "en": "Edge AI system that recognizes and classifies product images captured by USB camera in real-time, automating checkout. Main features: YOLO-based real-time product detection, Product classification by vector embedding (Qdrant Vector DB), Multi-object tracking with ByteTrack, Real-time video streaming via WebRTC, Cloud sync functionality, New product registration and training"
@@ -498,7 +488,7 @@ def seed_database():
                     phases=proj_data["phases"],
                     start_date=proj_data["start_date"],
                     end_date=proj_data.get("end_date"),
-                    duration=proj_data["duration"],
+                    # duration is auto-calculated from start_date and end_date
                     relevance_leader=proj_data["relevance"]["leader"],
                     relevance_brse=proj_data["relevance"]["brse"],
                     relevance_fullstack=proj_data["relevance"]["fullstack"],

@@ -18,8 +18,9 @@ class Profile(Base):
     school = Column(String(200))
     graduation_year = Column(Integer)
     field = Column(String(200))
-    work_experience = Column(String(50))
-    japan_residence = Column(String(50))
+    # Multilingual: {"ja": "4年", "vi": "4 năm", "en": "4 years"}
+    work_experience = Column(JSON, default={})
+    japan_residence = Column(JSON, default={})
     japanese_level = Column(String(10))
 
     # Contact information
@@ -62,7 +63,8 @@ class Skill(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(100), nullable=False)
     level = Column(Integer, nullable=False)  # 1-5 proficiency rating
-    experience = Column(String(50))  # Duration string, e.g., "2年7ヶ月"
+    # Multilingual: {"ja": "2年7ヶ月", "vi": "2 năm 7 tháng", "en": "2y 7m"}
+    experience = Column(JSON, default={})
     category_id = Column(Integer, ForeignKey("skill_categories.id"), nullable=False)
     category_key = Column(String(50))  # Denormalized for easier queries
     display_order = Column(Integer, default=0)
@@ -92,7 +94,9 @@ class Project(Base):
     phases = Column(JSON)  # ["製造", "単体テスト", ...]
     start_date = Column(String(20))  # "YYYY-MM" format
     end_date = Column(String(20), nullable=True)
-    duration = Column(String(50))
+    # Duration is auto-calculated from start_date and end_date
+    # This field is deprecated but kept for backward compatibility
+    duration = Column(JSON, nullable=True)
 
     # Relevance scores for role-based sorting (1-5)
     relevance_leader = Column(Integer, default=1)

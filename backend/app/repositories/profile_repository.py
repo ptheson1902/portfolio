@@ -64,6 +64,22 @@ class ProfileRepository(BaseRepository[Profile]):
         if profile.address:
             address = profile.address.get(lang.value, profile.address.get("ja", ""))
 
+        # Extract language-specific work_experience
+        work_experience = ""
+        if profile.work_experience:
+            if isinstance(profile.work_experience, dict):
+                work_experience = profile.work_experience.get(lang.value, profile.work_experience.get("ja", ""))
+            else:
+                work_experience = profile.work_experience
+
+        # Extract language-specific japan_residence
+        japan_residence = ""
+        if profile.japan_residence:
+            if isinstance(profile.japan_residence, dict):
+                japan_residence = profile.japan_residence.get(lang.value, profile.japan_residence.get("ja", ""))
+            else:
+                japan_residence = profile.japan_residence
+
         return {
             "name": profile.name,
             "name_kana": profile.name_kana,
@@ -74,8 +90,8 @@ class ProfileRepository(BaseRepository[Profile]):
             "school": profile.school,
             "graduation_year": profile.graduation_year,
             "field": profile.field,
-            "work_experience": profile.work_experience,
-            "japan_residence": profile.japan_residence,
+            "work_experience": work_experience,
+            "japan_residence": japan_residence,
             "japanese_level": profile.japanese_level,
             "email": profile.email,
             "phone": profile.phone,

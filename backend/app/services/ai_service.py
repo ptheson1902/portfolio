@@ -34,12 +34,35 @@ class AIService:
         if profile_data:
             context_parts.append("=== Profile ===")
             context_parts.append(f"Name: {profile_data['name']} ({profile_data['name_kana']})")
+            if profile_data.get('date_of_birth'):
+                context_parts.append(f"Date of Birth: {profile_data['date_of_birth']}")
             context_parts.append(f"Age: {profile_data['age']}")
             context_parts.append(f"School: {profile_data['school']} (Graduated {profile_data['graduation_year']})")
             context_parts.append(f"Work Experience: {profile_data['work_experience']}")
             context_parts.append(f"Japan Residence: {profile_data['japan_residence']}")
             context_parts.append(f"Japanese Level: {profile_data['japanese_level']}")
             context_parts.append(f"Field: {profile_data['field']}")
+
+            # Contact Information
+            context_parts.append("\n=== Contact Information ===")
+            if profile_data.get('email'):
+                context_parts.append(f"Email: {profile_data['email']}")
+            if profile_data.get('phone'):
+                context_parts.append(f"Phone: {profile_data['phone']}")
+            if profile_data.get('address'):
+                context_parts.append(f"Address: {profile_data['address']}")
+
+            # Social Links
+            if profile_data.get('social_links'):
+                social = profile_data['social_links']
+                context_parts.append("\n=== Social Links ===")
+                if social.get('facebook'):
+                    context_parts.append(f"Facebook: {social['facebook']}")
+                if social.get('messenger'):
+                    context_parts.append(f"Messenger: {social['messenger']}")
+                if social.get('github'):
+                    context_parts.append(f"GitHub: {social['github']}")
+
             context_parts.append(f"\nSelf PR:\n{profile_data['self_pr']}")
 
         # Get skills

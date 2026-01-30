@@ -1,10 +1,61 @@
 """Project repository for database access."""
 from typing import Dict, List, Any, Optional
+from datetime import datetime
 from sqlalchemy.orm import Session
 
 from ..models.db_models import Project
 from ..models.schemas import Language, Role
 from .base import BaseRepository
+
+
+def calculate_duration(start_date: str, end_date: Optional[str], lang: Language) -> str:
+    """
+    Calculate duration from start_date and end_date.
+    Returns multilingual duration string based on lang.
+    Format: YYYY-MM for both dates.
+    """
+    if not start_date:
+        return ""
+
+    try:
+        start = datetime.strptime(start_date, "%Y-%m")
+        if end_date:
+            end = datetime.strptime(end_date, "%Y-%m")
+        else:
+            end = datetime.now()
+
+        # Calculate months difference (inclusive of both start and end month)
+        months = (end.year - start.year) * 12 + (end.month - start.month) + 1
+        if months < 1:
+            months = 1
+
+        years = months // 12
+        remaining_months = months % 12
+
+        # Format based on language
+        if lang == Language.JA:
+            if years > 0 and remaining_months > 0:
+                return f"{years}年{remaining_months}ヶ月"
+            elif years > 0:
+                return f"{years}年"
+            else:
+                return f"{remaining_months}ヶ月"
+        elif lang == Language.VI:
+            if years > 0 and remaining_months > 0:
+                return f"{years} năm {remaining_months} tháng"
+            elif years > 0:
+                return f"{years} năm"
+            else:
+                return f"{remaining_months} tháng"
+        else:  # EN
+            if years > 0 and remaining_months > 0:
+                return f"{years}y {remaining_months}m"
+            elif years > 0:
+                return f"{years}y"
+            else:
+                return f"{remaining_months}m"
+    except ValueError:
+        return ""
 
 
 class ProjectRepository(BaseRepository[Project]):
@@ -13,19 +64,32 @@ class ProjectRepository(BaseRepository[Project]):
     def __init__(self, db: Session):
         super().__init__(Project, db)
 
+    def _extract_multilingual(self, value: Any, lang: Language, default: Any = "") -> Any:
+        """Extract language-specific value from multilingual field."""
+        if isinstance(value, dict):
+            return value.get(lang.value, value.get("ja", default))
+        return value or default
+
+    def _get_duration(self, start_date: str, end_date: Optional[str], lang: Language) -> str:
+        """Calculate duration from dates."""
+        return calculate_duration(start_date, end_date, lang)
+
     def get_projects_for_display(self, lang: Language, role: Role) -> Dict[str, Any]:
         """
         Get projects with language-specific fields extracted.
         Projects are sorted by role relevance.
+        Duration is auto-calculated from start_date and end_date.
         """
         projects = self.db.query(Project).all()
 
         project_list = []
         for p in projects:
             # Extract language-specific fields
-            name = p.name.get(lang.value, p.name.get("ja", "")) if p.name else ""
-            description = p.description.get(lang.value, p.description.get("ja", "")) if p.description else ""
-            highlights = p.highlights.get(lang.value, p.highlights.get("ja", [])) if p.highlights else []
+            name = self._extract_multilingual(p.name, lang)
+            description = self._extract_multilingual(p.description, lang)
+            highlights = self._extract_multilingual(p.highlights, lang, [])
+            # Auto-calculate duration from dates
+            duration = self._get_duration(p.start_date, p.end_date, lang)
 
             project_list.append({
                 "id": p.id,
@@ -37,7 +101,7 @@ class ProjectRepository(BaseRepository[Project]):
                 "phases": p.phases or [],
                 "start_date": p.start_date,
                 "end_date": p.end_date,
-                "duration": p.duration,
+                "duration": duration,
                 "description": description,
                 "highlights": highlights,
                 "relevance": p.get_relevance(role.value)
@@ -96,13 +160,12 @@ class ProjectRepository(BaseRepository[Project]):
         environment: str,
         phases: List[str],
         start_date: str,
-        duration: str,
         end_date: Optional[str] = None,
         relevance_leader: int = 1,
         relevance_brse: int = 1,
         relevance_fullstack: int = 1
     ) -> Project:
-        """Create a new project."""
+        """Create a new project. Duration is auto-calculated from dates."""
         # Get next ID
         max_id = self.db.query(Project).count() + 1
 
@@ -118,7 +181,6 @@ class ProjectRepository(BaseRepository[Project]):
             phases=phases,
             start_date=start_date,
             end_date=end_date,
-            duration=duration,
             relevance_leader=relevance_leader,
             relevance_brse=relevance_brse,
             relevance_fullstack=relevance_fullstack,
@@ -146,16 +208,16 @@ class ProjectRepository(BaseRepository[Project]):
 
         return [
             {
-                "name": p.name.get(lang.value, p.name.get("ja", "")) if p.name else "",
+                "name": self._extract_multilingual(p.name, lang),
                 "role": p.role,
                 "team_size": p.team_size,
                 "technologies": p.technologies or [],
                 "phases": p.phases or [],
                 "start_date": p.start_date,
                 "end_date": p.end_date,
-                "duration": p.duration,
-                "description": p.description.get(lang.value, p.description.get("ja", "")) if p.description else "",
-                "highlights": p.highlights.get(lang.value, p.highlights.get("ja", [])) if p.highlights else []
+                "duration": self._get_duration(p.start_date, p.end_date, lang),
+                "description": self._extract_multilingual(p.description, lang),
+                "highlights": self._extract_multilingual(p.highlights, lang, [])
             }
             for p in projects
         ]

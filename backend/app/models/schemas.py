@@ -164,7 +164,7 @@ class MultilingualList(BaseModel):
 
 
 class ProjectCreate(BaseModel):
-    """Schema for creating a new project."""
+    """Schema for creating a new project. Duration is auto-calculated from dates."""
     name: MultilingualText
     description: MultilingualText
     highlights: MultilingualList
@@ -173,16 +173,15 @@ class ProjectCreate(BaseModel):
     technologies: List[str]
     environment: str
     phases: List[str]
-    start_date: str
-    duration: str
-    end_date: Optional[str] = None
+    start_date: str  # YYYY-MM format
+    end_date: Optional[str] = None  # YYYY-MM format, None = ongoing
     relevance_leader: int = 1
     relevance_brse: int = 1
     relevance_fullstack: int = 1
 
 
 class ProjectUpdate(BaseModel):
-    """Schema for updating a project."""
+    """Schema for updating a project. Duration is auto-calculated from dates."""
     name: Optional[MultilingualText] = None
     description: Optional[MultilingualText] = None
     highlights: Optional[MultilingualList] = None
@@ -191,9 +190,8 @@ class ProjectUpdate(BaseModel):
     technologies: Optional[List[str]] = None
     environment: Optional[str] = None
     phases: Optional[List[str]] = None
-    start_date: Optional[str] = None
-    duration: Optional[str] = None
-    end_date: Optional[str] = None
+    start_date: Optional[str] = None  # YYYY-MM format
+    end_date: Optional[str] = None  # YYYY-MM format
     relevance_leader: Optional[int] = None
     relevance_brse: Optional[int] = None
     relevance_fullstack: Optional[int] = None

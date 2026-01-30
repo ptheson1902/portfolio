@@ -136,9 +136,8 @@ export interface ProjectCreate {
   technologies: string[];
   environment: string;
   phases: string[];
-  start_date: string;
-  end_date?: string;
-  duration: string;
+  start_date: string;  // YYYY-MM format
+  end_date?: string;   // YYYY-MM format, duration is auto-calculated
   description: Record<string, string>;
   highlights: Record<string, string[]>;
   relevance_fullstack?: number;
@@ -153,9 +152,8 @@ export interface ProjectUpdate {
   technologies?: string[];
   environment?: string;
   phases?: string[];
-  start_date?: string;
-  end_date?: string;
-  duration?: string;
+  start_date?: string;  // YYYY-MM format
+  end_date?: string;    // YYYY-MM format, duration is auto-calculated
   description?: Record<string, string>;
   highlights?: Record<string, string[]>;
   relevance_fullstack?: number;

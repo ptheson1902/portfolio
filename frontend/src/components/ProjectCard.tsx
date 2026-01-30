@@ -30,6 +30,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   const [editTeamSize, setEditTeamSize] = useState(project.team_size);
   const [editDescription, setEditDescription] = useState(project.description);
   const [editTechnologies, setEditTechnologies] = useState(project.technologies.join(', '));
+  const [editStartDate, setEditStartDate] = useState(project.start_date);
+  const [editEndDate, setEditEndDate] = useState(project.end_date || '');
   const [isSaving, setIsSaving] = useState(false);
 
   const handleDelete = async (e: React.MouseEvent) => {
@@ -65,6 +67,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     if (JSON.stringify(newTechnologies) !== JSON.stringify(project.technologies)) {
       updateData.technologies = newTechnologies;
     }
+    if (editStartDate !== project.start_date) {
+      updateData.start_date = editStartDate;
+    }
+    if (editEndDate !== (project.end_date || '')) {
+      updateData.end_date = editEndDate || undefined;
+    }
 
     const success = await onUpdate(project.id, updateData);
     if (success) {
@@ -78,6 +86,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     setEditTeamSize(project.team_size);
     setEditDescription(project.description);
     setEditTechnologies(project.technologies.join(', '));
+    setEditStartDate(project.start_date);
+    setEditEndDate(project.end_date || '');
     setIsEditing(false);
   };
 
@@ -203,6 +213,31 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                     onChange={(e) => setEditTechnologies(e.target.value)}
                     className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded bg-white dark:bg-dark-bg text-slate-900 dark:text-slate-100"
                   />
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1 block">
+                      Start Date (YYYY-MM)
+                    </label>
+                    <input
+                      type="month"
+                      value={editStartDate}
+                      onChange={(e) => setEditStartDate(e.target.value)}
+                      className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded bg-white dark:bg-dark-bg text-slate-900 dark:text-slate-100"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1 block">
+                      End Date (YYYY-MM)
+                    </label>
+                    <input
+                      type="month"
+                      value={editEndDate}
+                      onChange={(e) => setEditEndDate(e.target.value)}
+                      placeholder="Leave empty for ongoing"
+                      className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded bg-white dark:bg-dark-bg text-slate-900 dark:text-slate-100"
+                    />
+                  </div>
                 </div>
                 <div>
                   <label className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1 block">

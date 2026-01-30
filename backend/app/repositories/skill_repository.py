@@ -1,5 +1,5 @@
 """Skill repository for database access."""
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any, Optional, Union
 from sqlalchemy.orm import Session
 
 from ..models.db_models import Skill, SkillCategory
@@ -18,6 +18,12 @@ class SkillRepository(BaseRepository[Skill]):
         return self.db.query(Skill).filter(
             Skill.category_key == category_key
         ).order_by(Skill.display_order).all()
+
+    def _extract_experience(self, experience: Any, lang: Language) -> str:
+        """Extract language-specific experience value."""
+        if isinstance(experience, dict):
+            return experience.get(lang.value, experience.get("ja", ""))
+        return experience or ""
 
     def get_skills_grouped_by_category(self, lang: Language, role: Role) -> Dict[str, List[Dict[str, Any]]]:
         """
@@ -39,7 +45,7 @@ class SkillRepository(BaseRepository[Skill]):
                     "id": s.id,
                     "name": s.name,
                     "level": s.level,
-                    "experience": s.experience,
+                    "experience": self._extract_experience(s.experience, lang),
                     "category": s.category_key
                 }
                 for s in skills

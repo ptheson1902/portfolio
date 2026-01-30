@@ -69,7 +69,7 @@ class ProjectService:
         ]
 
     def create_project(self, project_data: Dict[str, Any]) -> Dict[str, Any]:
-        """Create a new project."""
+        """Create a new project. Duration is auto-calculated from dates."""
         project = self.repo.create_project(
             name=project_data["name"],
             description=project_data["description"],
@@ -80,7 +80,6 @@ class ProjectService:
             environment=project_data["environment"],
             phases=project_data["phases"],
             start_date=project_data["start_date"],
-            duration=project_data["duration"],
             end_date=project_data.get("end_date"),
             relevance_leader=project_data.get("relevance_leader", 1),
             relevance_brse=project_data.get("relevance_brse", 1),

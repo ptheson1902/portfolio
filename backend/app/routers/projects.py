@@ -69,6 +69,7 @@ async def create_project(
     """
     service = ProjectService(db)
     try:
+        # Duration is auto-calculated from start_date and end_date
         project = service.create_project({
             "name": project_data.name.model_dump(),
             "description": project_data.description.model_dump(),
@@ -79,7 +80,6 @@ async def create_project(
             "environment": project_data.environment,
             "phases": project_data.phases,
             "start_date": project_data.start_date,
-            "duration": project_data.duration,
             "end_date": project_data.end_date,
             "relevance_leader": project_data.relevance_leader,
             "relevance_brse": project_data.relevance_brse,
@@ -127,8 +127,7 @@ async def update_project(
         update_dict["phases"] = project_data.phases
     if project_data.start_date is not None:
         update_dict["start_date"] = project_data.start_date
-    if project_data.duration is not None:
-        update_dict["duration"] = project_data.duration
+    # Duration is auto-calculated, no need to store it
     if project_data.end_date is not None:
         update_dict["end_date"] = project_data.end_date
     if project_data.relevance_leader is not None:
