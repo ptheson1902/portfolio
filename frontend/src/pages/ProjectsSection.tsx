@@ -25,7 +25,6 @@ export const ProjectsSection: React.FC = () => {
     phases: '',
     start_date: '',
     end_date: '',
-    duration: '',
     description: '',
     highlights: '',
   });
@@ -60,9 +59,8 @@ export const ProjectsSection: React.FC = () => {
       technologies: newProject.technologies.split(',').map(t => t.trim()).filter(Boolean),
       environment: newProject.environment || 'N/A',
       phases: newProject.phases.split(',').map(p => p.trim()).filter(Boolean),
-      start_date: newProject.start_date || new Date().toISOString().split('T')[0],
+      start_date: newProject.start_date || new Date().toISOString().slice(0, 7),
       end_date: newProject.end_date || undefined,
-      duration: newProject.duration || '1 month',
       description: { ja: newProject.description, vi: newProject.description, en: newProject.description },
       highlights: {
         ja: newProject.highlights.split('\n').filter(Boolean),
@@ -87,7 +85,6 @@ export const ProjectsSection: React.FC = () => {
         phases: '',
         start_date: '',
         end_date: '',
-        duration: '',
         description: '',
         highlights: '',
       });
@@ -179,22 +176,10 @@ export const ProjectsSection: React.FC = () => {
             </div>
             <div>
               <label className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-1">
-                Duration
+                Start Date (YYYY-MM)
               </label>
               <input
-                type="text"
-                value={newProject.duration}
-                onChange={(e) => setNewProject({ ...newProject, duration: e.target.value })}
-                className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded bg-white dark:bg-dark-bg text-slate-900 dark:text-slate-100"
-                placeholder="e.g., 6 months"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-1">
-                Start Date
-              </label>
-              <input
-                type="date"
+                type="month"
                 value={newProject.start_date}
                 onChange={(e) => setNewProject({ ...newProject, start_date: e.target.value })}
                 className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded bg-white dark:bg-dark-bg text-slate-900 dark:text-slate-100"
@@ -202,13 +187,14 @@ export const ProjectsSection: React.FC = () => {
             </div>
             <div>
               <label className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-1">
-                End Date
+                End Date (YYYY-MM)
               </label>
               <input
-                type="date"
+                type="month"
                 value={newProject.end_date}
                 onChange={(e) => setNewProject({ ...newProject, end_date: e.target.value })}
                 className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded bg-white dark:bg-dark-bg text-slate-900 dark:text-slate-100"
+                placeholder="Leave empty for ongoing"
               />
             </div>
             <div className="md:col-span-2">

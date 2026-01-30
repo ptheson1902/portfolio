@@ -142,7 +142,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["製造", "単体テスト"],
             "start_date": "2021-06",
             "end_date": "2021-08",
-                        "description": {
+            "description": {
                 "ja": "【Java】プログラム基礎の理解、課題アプリの作成\n【Oracle】SQLの理解",
                 "vi": "【Java】Hiểu cơ bản về lập trình, tạo ứng dụng bài tập\n【Oracle】Hiểu SQL",
                 "en": "[Java] Understanding programming basics, creating practice applications\n[Oracle] Understanding SQL"
@@ -168,7 +168,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["製造", "単体テスト"],
             "start_date": "2021-09",
             "end_date": "2022-01",
-                        "description": {
+            "description": {
                 "ja": "入力画面の新規開発を担当しました。新規登録、修正、削除、照会の画面を作成しました。入力に必須なマスタメンテナンス画面についても対応しました。",
                 "vi": "Phụ trách phát triển mới màn hình nhập liệu. Đã tạo các màn hình đăng ký mới, sửa đổi, xóa, và tra cứu. Cũng đã xử lý màn hình bảo trì master cần thiết cho việc nhập liệu.",
                 "en": "Responsible for new development of input screens. Created screens for new registration, modification, deletion, and inquiry. Also handled master maintenance screens required for input."
@@ -194,7 +194,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["製造", "単体テスト"],
             "start_date": "2022-01",
             "end_date": "2022-07",
-                        "description": {
+            "description": {
                 "ja": "画面の新規開発を担当しました。（新規登録、照会の画面の作成）バッチの作成も担当しました。",
                 "vi": "Phụ trách phát triển mới màn hình. (Tạo màn hình đăng ký mới, tra cứu) Cũng phụ trách tạo batch.",
                 "en": "Responsible for new screen development. (Creating new registration, inquiry screens) Also responsible for batch creation."
@@ -220,7 +220,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["製造", "単体テスト", "詳細設計"],
             "start_date": "2022-06",
             "end_date": "2022-08",
-                        "description": {
+            "description": {
                 "ja": "ゲスト利用画面の新規開発を担当しました。（新規登録、照会、検索の画面の作成）DB更新、開発環境の作成",
                 "vi": "Phụ trách phát triển mới màn hình sử dụng cho khách. (Tạo màn hình đăng ký mới, tra cứu, tìm kiếm) Cập nhật DB, tạo môi trường phát triển",
                 "en": "Responsible for new development of guest usage screens. (Creating new registration, inquiry, search screens) DB update, development environment setup"
@@ -246,7 +246,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["製造", "単体テスト", "詳細設計"],
             "start_date": "2022-08",
             "end_date": "2023-03",
-                        "description": {
+            "description": {
                 "ja": "不動産のシステム開発、案件対応",
                 "vi": "Phát triển hệ thống bất động sản, xử lý các yêu cầu dự án",
                 "en": "Real estate system development, handling project requirements"
@@ -272,7 +272,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["デザイン", "製造"],
             "start_date": "2023-04",
             "end_date": "2023-05",
-                        "description": {
+            "description": {
                 "ja": "モックアップ作成を担当しました。",
                 "vi": "Phụ trách tạo mockup.",
                 "en": "Responsible for creating mockups."
@@ -298,7 +298,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["結合テスト", "Q&A対応", "詳細設計"],
             "start_date": "2023-06",
             "end_date": "2023-11",
-                        "description": {
+            "description": {
                 "ja": "帳票作成、更新、出力（Excel, PDF）。データ登録：CSVインポート、マスター登録、一括登録、複製登録、母国語対応",
                 "vi": "Tạo, cập nhật, xuất báo cáo (Excel, PDF). Đăng ký dữ liệu: Import CSV, đăng ký master, đăng ký hàng loạt, đăng ký sao chép, hỗ trợ ngôn ngữ mẹ đẻ",
                 "en": "Report creation, update, output (Excel, PDF). Data registration: CSV import, master registration, bulk registration, copy registration, native language support"
@@ -324,7 +324,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["詳細設計", "コーディング", "製造", "単体テスト", "結合テスト", "総合試験", "現地試験", "運用・保守"],
             "start_date": "2023-12",
             "end_date": "2024-12",
-                        "description": {
+            "description": {
                 "ja": "交通管制データの連携及び活用：データ管理、帳票やCSVやPDFなど出力。データ統計：データ管理、帳票やCSVやPDFなど出力。道路状況：地図上のストリームカメラの管理。無線局管理：XMLファイル作成、申請履歴の管理、納付情報の管理、ユーザ情報の管理。バッチ改善を担当しました。",
                 "vi": "Liên kết và sử dụng dữ liệu điều khiển giao thông: Quản lý dữ liệu, xuất báo cáo/CSV/PDF. Thống kê dữ liệu. Tình trạng đường: Quản lý camera stream trên bản đồ. Quản lý trạm vô tuyến: Tạo file XML, quản lý lịch sử đăng ký, quản lý thông tin thanh toán, quản lý thông tin người dùng. Cải thiện batch.",
                 "en": "Traffic control data integration and utilization: Data management, report/CSV/PDF output. Data statistics. Road conditions: Stream camera management on maps. Radio station management: XML file creation, application history management, payment info management, user info management. Batch improvement."
@@ -350,7 +350,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["コーディング", "単体テスト", "製造", "Q&A対応"],
             "start_date": "2025-01",
             "end_date": "2025-06",
-                        "description": {
+            "description": {
                 "ja": "日本の顧客とオフショア開発チームのブリッジとして、要件定義、技術的な伝達、品質管理、日越間のコミュニケーションを担当。人物調査管理画面を担当。人事評価管理画面を担当。調査評価基準設定管理を担当。",
                 "vi": "Là cầu nối giữa khách hàng Nhật Bản và đội phát triển offshore, phụ trách định nghĩa yêu cầu, truyền đạt kỹ thuật, quản lý chất lượng, giao tiếp Nhật-Việt. Phụ trách màn hình quản lý điều tra nhân vật. Phụ trách màn hình quản lý đánh giá nhân sự. Phụ trách quản lý cài đặt tiêu chí đánh giá điều tra.",
                 "en": "As a bridge between Japanese clients and offshore development team, responsible for requirements definition, technical communication, quality management, Japan-Vietnam communication. Responsible for personnel investigation management screen. HR evaluation management screen. Investigation evaluation criteria setting management."
@@ -376,7 +376,7 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "phases": ["基本設計", "詳細設計", "コーディング", "単体テスト", "結合テスト", "運用・保守"],
             "start_date": "2025-06",
             "end_date": "2026-02",
-                        "description": {
+            "description": {
                 "ja": "USBカメラで撮影した商品画像をリアルタイムで認識・分類し、レジ精算を自動化するエッジAIシステム。主な機能：YOLOベースのリアルタイム商品検出、ベクトル埋め込みによる商品分類（Qdrant Vector DB）、ByteTrackによるマルチオブジェクトトラッキング、WebRTCによるリアルタイム映像配信、クラウド同期機能（商品データベース同期）、商品登録機能（新商品の画像登録・学習）",
                 "vi": "Hệ thống Edge AI nhận dạng và phân loại hình ảnh sản phẩm quay bằng camera USB theo thời gian thực, tự động hóa thanh toán. Chức năng chính: Phát hiện sản phẩm thời gian thực dựa trên YOLO, Phân loại sản phẩm bằng vector embedding (Qdrant Vector DB), Theo dõi đa đối tượng bằng ByteTrack, Phát video thời gian thực bằng WebRTC, Đồng bộ cloud, Đăng ký sản phẩm mới",
                 "en": "Edge AI system that recognizes and classifies product images captured by USB camera in real-time, automating checkout. Main features: YOLO-based real-time product detection, Product classification by vector embedding (Qdrant Vector DB), Multi-object tracking with ByteTrack, Real-time video streaming via WebRTC, Cloud sync functionality, New product registration and training"
