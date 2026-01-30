@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Sun, Moon, Globe, User, MessageSquare, Code, Briefcase } from 'lucide-react';
+import { Sun, Moon, Globe, User, Code, Briefcase } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { Role, Language } from '../types';
 
@@ -25,7 +25,6 @@ export const Header: React.FC<HeaderProps> = ({ activeSection, onSectionChange }
     { id: 'profile', label: t('nav.profile'), icon: <User className="w-4 h-4" /> },
     { id: 'skills', label: t('nav.skills'), icon: <Code className="w-4 h-4" /> },
     { id: 'projects', label: t('nav.projects'), icon: <Briefcase className="w-4 h-4" /> },
-    { id: 'chat', label: t('nav.chat'), icon: <MessageSquare className="w-4 h-4" /> },
   ];
 
   return (

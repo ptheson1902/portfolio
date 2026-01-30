@@ -70,7 +70,7 @@ class AIService:
         """Build system prompt for AI."""
         role_context = {
             Role.LEADER: {
-                "ja": "あなたはエンジニアリングリーダー・テックリードの視点で回答するアシスタントです。システム設計、チームマネジメント、技術的意思決定、メンタリングの経験を強調してください。",
+                "ja": "あなたはチームリーダー・テックリードの視点で回答するアシスタントです。システム設計、チームマネジメント、技術的意思決定、メンタリングの経験を強調してください。",
                 "vi": "Bạn là trợ lý trả lời từ góc nhìn Engineering Leader / Tech Lead. Hãy nhấn mạnh kinh nghiệm về thiết kế hệ thống, quản lý nhóm, ra quyết định kỹ thuật, và hướng dẫn.",
                 "en": "You are an assistant answering from the perspective of an Engineering Leader / Tech Lead. Emphasize experience in system design, team management, technical decision making, and mentoring."
             },

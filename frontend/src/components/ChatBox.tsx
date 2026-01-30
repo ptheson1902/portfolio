@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Send, MessageSquare, User, Bot, Languages } from 'lucide-react';
+import { Send, User, Bot, Languages } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { useChat } from '../hooks/useApi';
 import { ChatMessage, AnswerMode } from '../types';
@@ -59,46 +59,40 @@ export const ChatBox: React.FC = () => {
   const exampleQuestions = t(`chat.examples.${role}`, { returnObjects: true }) as string[];
 
   return (
-    <div className="card h-[600px] flex flex-col">
-      <div className="p-4 border-b border-slate-200 dark:border-dark-border">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <MessageSquare className="w-5 h-5 text-primary-600" />
-            <h3 className="font-semibold text-slate-900 dark:text-slate-100">
-              {t('chat.title')}
-            </h3>
-          </div>
-          <div className="flex items-center space-x-2">
-            <Languages className="w-4 h-4 text-slate-500" />
-            <select
-              value={answerMode}
-              onChange={(e) => setAnswerMode(e.target.value as AnswerMode)}
-              className="text-sm bg-slate-100 dark:bg-slate-800 border-0 rounded-lg px-2 py-1"
-            >
-              <option value="single">{t('chat.single')}</option>
-              <option value="bilingual">{t('chat.bilingual')}</option>
-            </select>
-          </div>
+    <div className="h-full flex flex-col">
+      {/* Mode selector */}
+      <div className="px-3 py-2 border-b border-slate-200 dark:border-dark-border bg-slate-50 dark:bg-slate-800/50">
+        <div className="flex items-center justify-end space-x-2">
+          <Languages className="w-4 h-4 text-slate-500" />
+          <select
+            value={answerMode}
+            onChange={(e) => setAnswerMode(e.target.value as AnswerMode)}
+            className="text-xs bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-lg px-2 py-1"
+          >
+            <option value="single">{t('chat.single')}</option>
+            <option value="bilingual">{t('chat.bilingual')}</option>
+          </select>
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      {/* Messages */}
+      <div className="flex-1 overflow-y-auto p-3 space-y-3">
         {messages.length === 0 ? (
-          <div className="text-center py-8">
-            <Bot className="w-12 h-12 mx-auto text-slate-400 mb-4" />
-            <p className="text-slate-600 dark:text-slate-400 mb-6">
+          <div className="text-center py-4">
+            <Bot className="w-10 h-10 mx-auto text-slate-400 mb-3" />
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
               {t('chat.welcome')}
             </p>
             <div className="space-y-2">
-              <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+              <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
                 {t('chat.examples.title')}
               </p>
-              <div className="flex flex-wrap justify-center gap-2">
-                {exampleQuestions.map((q, i) => (
+              <div className="flex flex-col gap-1.5">
+                {exampleQuestions.slice(0, 2).map((q, i) => (
                   <button
                     key={i}
                     onClick={() => setInput(q)}
-                    className="text-sm px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                    className="text-xs px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-700 dark:hover:text-primary-300 transition-colors text-left"
                   >
                     {q}
                   </button>
@@ -117,25 +111,25 @@ export const ChatBox: React.FC = () => {
               }`}
             >
               <div
-                className={`max-w-[80%] ${
+                className={`max-w-[85%] ${
                   message.type === 'user'
-                    ? 'bg-primary-600 text-white rounded-2xl rounded-br-md'
-                    : 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-2xl rounded-bl-md'
-                } px-4 py-3`}
+                    ? 'bg-primary-600 text-white rounded-2xl rounded-br-sm'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-2xl rounded-bl-sm'
+                } px-3 py-2`}
               >
-                <div className="flex items-center space-x-2 mb-1">
+                <div className="flex items-center space-x-1.5 mb-1">
                   {message.type === 'user' ? (
-                    <User className="w-4 h-4" />
+                    <User className="w-3 h-3" />
                   ) : (
-                    <Bot className="w-4 h-4" />
+                    <Bot className="w-3 h-3" />
                   )}
-                  <span className="text-xs opacity-70">
+                  <span className="text-[10px] opacity-70">
                     {message.timestamp.toLocaleTimeString()}
                   </span>
                 </div>
-                <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                <p className="text-sm whitespace-pre-wrap leading-relaxed">{message.content}</p>
                 {message.content_secondary && (
-                  <div className="mt-3 pt-3 border-t border-slate-200 dark:border-slate-700">
+                  <div className="mt-2 pt-2 border-t border-slate-200 dark:border-slate-700">
                     <p className="text-sm whitespace-pre-wrap opacity-90">
                       {message.content_secondary}
                     </p>
@@ -147,11 +141,11 @@ export const ChatBox: React.FC = () => {
         )}
         {loading && (
           <div className="flex justify-start">
-            <div className="bg-slate-100 dark:bg-slate-800 rounded-2xl rounded-bl-md px-4 py-3">
-              <div className="flex space-x-2">
-                <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" />
-                <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
-                <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+            <div className="bg-slate-100 dark:bg-slate-800 rounded-2xl rounded-bl-sm px-3 py-2">
+              <div className="flex space-x-1.5">
+                <div className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" />
+                <div className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
+                <div className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
               </div>
             </div>
           </div>
@@ -159,7 +153,8 @@ export const ChatBox: React.FC = () => {
         <div ref={messagesEndRef} />
       </div>
 
-      <div className="p-4 border-t border-slate-200 dark:border-dark-border">
+      {/* Input */}
+      <div className="p-3 border-t border-slate-200 dark:border-dark-border">
         <div className="flex items-center space-x-2">
           <textarea
             value={input}
@@ -167,14 +162,14 @@ export const ChatBox: React.FC = () => {
             onKeyPress={handleKeyPress}
             placeholder={t('chat.placeholder')}
             rows={1}
-            className="flex-1 resize-none bg-slate-100 dark:bg-slate-800 border-0 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary-500 outline-none"
+            className="flex-1 resize-none bg-slate-100 dark:bg-slate-800 border-0 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-primary-500 outline-none"
           />
           <button
             onClick={handleSend}
             disabled={!input.trim() || loading}
-            className="btn btn-primary p-3 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
+            className="p-2 bg-primary-600 hover:bg-primary-700 text-white rounded-xl disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
-            <Send className="w-5 h-5" />
+            <Send className="w-4 h-4" />
           </button>
         </div>
       </div>

@@ -21,6 +21,7 @@ class AnswerMode(str, Enum):
 
 
 class Skill(BaseModel):
+    id: int
     name: str
     level: int
     experience: str

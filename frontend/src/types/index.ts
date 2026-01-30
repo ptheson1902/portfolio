@@ -4,6 +4,7 @@ export type AnswerMode = 'single' | 'bilingual';
 export type Theme = 'light' | 'dark';
 
 export interface Skill {
+  id: number;
   name: string;
   level: number;
   experience: string;
@@ -93,15 +94,16 @@ export interface ProfileUpdate {
 
 export interface SkillCreate {
   name: string;
-  category_id: number;
+  category: string;
   level: number;
-  experience_years: number;
+  experience: string;
 }
 
 export interface SkillUpdate {
   name?: string;
   level?: number;
-  experience_years?: number;
+  experience?: string;
+  category?: string;
 }
 
 export interface SkillResponse {
@@ -121,6 +123,7 @@ export interface ProjectCreate {
   phases: string[];
   start_date: string;
   end_date?: string;
+  duration: string;
   description: Record<string, string>;
   highlights: Record<string, string[]>;
   relevance_fullstack?: number;
@@ -137,6 +140,7 @@ export interface ProjectUpdate {
   phases?: string[];
   start_date?: string;
   end_date?: string;
+  duration?: string;
   description?: Record<string, string>;
   highlights?: Record<string, string[]>;
   relevance_fullstack?: number;

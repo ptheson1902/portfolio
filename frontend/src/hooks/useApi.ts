@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import axios, { AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 import { useApp } from '../context/AppContext';
 import {
   ProfileResponse,
@@ -18,8 +18,11 @@ import {
 
 const AUTH_TOKEN_KEY = 'admin_token';
 
+// Use environment variable for API URL, fallback to relative path for dev
+const API_BASE_URL = import.meta.env.VITE_API_URL || '';
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: `${API_BASE_URL}/api`,
 });
 
 // Add auth header interceptor
@@ -37,25 +40,26 @@ export const useProfile = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const response = await api.get<ProfileResponse>('/profile', {
-          params: { lang: language, role },
-        });
-        setData(response.data);
-        setError(null);
-      } catch (err) {
-        setError(err as Error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
+  const fetchData = useCallback(async () => {
+    setLoading(true);
+    try {
+      const response = await api.get<ProfileResponse>('/profile', {
+        params: { lang: language, role },
+      });
+      setData(response.data);
+      setError(null);
+    } catch (err) {
+      setError(err as Error);
+    } finally {
+      setLoading(false);
+    }
   }, [language, role]);
 
-  return { data, loading, error };
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  return { data, loading, error, refetch: fetchData };
 };
 
 export const useSkills = () => {
@@ -64,25 +68,26 @@ export const useSkills = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const response = await api.get<SkillsResponse>('/skills', {
-          params: { lang: language, role },
-        });
-        setData(response.data);
-        setError(null);
-      } catch (err) {
-        setError(err as Error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
+  const fetchData = useCallback(async () => {
+    setLoading(true);
+    try {
+      const response = await api.get<SkillsResponse>('/skills', {
+        params: { lang: language, role },
+      });
+      setData(response.data);
+      setError(null);
+    } catch (err) {
+      setError(err as Error);
+    } finally {
+      setLoading(false);
+    }
   }, [language, role]);
 
-  return { data, loading, error };
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  return { data, loading, error, refetch: fetchData };
 };
 
 export const useProjects = () => {
@@ -91,25 +96,26 @@ export const useProjects = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const response = await api.get<ProjectsResponse>('/projects', {
-          params: { lang: language, role },
-        });
-        setData(response.data);
-        setError(null);
-      } catch (err) {
-        setError(err as Error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
+  const fetchData = useCallback(async () => {
+    setLoading(true);
+    try {
+      const response = await api.get<ProjectsResponse>('/projects', {
+        params: { lang: language, role },
+      });
+      setData(response.data);
+      setError(null);
+    } catch (err) {
+      setError(err as Error);
+    } finally {
+      setLoading(false);
+    }
   }, [language, role]);
 
-  return { data, loading, error };
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  return { data, loading, error, refetch: fetchData };
 };
 
 export const useChat = () => {
@@ -162,11 +168,11 @@ export const useProfileMutation = () => {
     }
   }, []);
 
-  const updateSelfPr = useCallback(async (selfPr: Record<string, string>): Promise<boolean> => {
+  const updateSelfPr = useCallback(async (lang: string, content: string): Promise<boolean> => {
     setLoading(true);
     setError(null);
     try {
-      await api.put('/profile/self-pr', { self_pr: selfPr });
+      await api.put('/profile/self-pr', { content }, { params: { lang } });
       return true;
     } catch (err) {
       setError(err as Error);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Header, AdminBar } from './components';
+import { Header, AdminBar, ChatBubble } from './components';
 import { AuthProvider } from './context/AuthContext';
-import { ProfileSection, SkillsSection, ProjectsSection, ChatSection } from './pages';
+import { ProfileSection, SkillsSection, ProjectsSection } from './pages';
 
 const AppContent: React.FC = () => {
   const [activeSection, setActiveSection] = useState('profile');
@@ -14,8 +14,6 @@ const AppContent: React.FC = () => {
         return <SkillsSection />;
       case 'projects':
         return <ProjectsSection />;
-      case 'chat':
-        return <ChatSection />;
       default:
         return <ProfileSection />;
     }
@@ -33,6 +31,7 @@ const AppContent: React.FC = () => {
           <p className="mt-1">Built with React, TypeScript, FastAPI</p>
         </div>
       </footer>
+      <ChatBubble />
       <AdminBar />
     </div>
   );

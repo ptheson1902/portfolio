@@ -20,6 +20,7 @@ class SkillService:
         def to_skill_schemas(skill_list: List[Dict]) -> List[SkillSchema]:
             return [
                 SkillSchema(
+                    id=s["id"],
                     name=s["name"],
                     level=s["level"],
                     experience=s["experience"],

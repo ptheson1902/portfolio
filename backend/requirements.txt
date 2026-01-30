@@ -15,12 +15,13 @@ aiosqlite>=0.19.0
 # Authentication
 python-jose[cryptography]>=3.3.0
 
-# PDF Generation
-weasyprint>=60.0
+# PDF Generation (optional - WeasyPrint requires GTK on Windows)
+# weasyprint>=60.0
 jinja2>=3.1.0
 
-# DOCX Generation
-python-docx>=1.1.0
+# Alternative PDF generators (choose one):
+# pip install playwright && playwright install chromium
+# Or download wkhtmltopdf from https://wkhtmltopdf.org/downloads.html
 
 # Testing
 pytest>=8.0.0

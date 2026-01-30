@@ -1,6 +1,9 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 import axios from 'axios';
 
+// Use environment variable for API URL, fallback to relative path for dev
+const API_BASE_URL = import.meta.env.VITE_API_URL || '';
+
 export type UserRole = 'owner' | 'visitor';
 
 interface AuthContextType {
@@ -33,7 +36,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const verifyToken = async (tokenToVerify: string) => {
     try {
-      const response = await axios.get('/api/auth/verify', {
+      const response = await axios.get(`${API_BASE_URL}/api/auth/verify`, {
         headers: { Authorization: `Bearer ${tokenToVerify}` },
       });
       if (response.data.valid) {

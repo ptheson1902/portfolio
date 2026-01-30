@@ -6,7 +6,7 @@
     "chat": "AIチャット"
   },
   "role": {
-    "leader": "エンジニアリングリーダー",
+    "leader": "チームリーダー",
     "brse": "BrSE",
     "fullstack": "フルスタックエンジニア",
     "select": "役割を選択"
