@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>情報処理技術者経歴書 - Skill Sheet</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+        :root {
+            --border-color: #a0a0a0;
+            --header-bg: #f0f0f0;
+            --category-bg: #e3f2fd;
+            --highlight-bg: #fff8e1;
+            --text-color: #1a1a1a;
+            --page-width: 297mm;
+            --page-height: 210mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', 'Yu Gothic', sans-serif;
+            font-size: 9pt;
+            line-height: 1.35;
+            background: #e0e0e0;
+            color: var(--text-color);
+        }
+
+        /* A4 Landscape Page Container */
+        .page-container {
+            width: var(--page-width);
+            min-height: var(--page-height);
+            margin: 15mm auto;
+            background: white;
+            padding: 8mm 10mm;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        /* Sheet Title */
+        .sheet-title {
+            font-size: 16pt;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 8mm;
+            color: #1a237e;
+            letter-spacing: 0.5em;
+            border-bottom: 2px solid #1a237e;
+            padding-bottom: 3mm;
+        }
+
+        /* Main Excel Table */
+        .excel-table {
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed;
+            font-size: 8pt;
+        }
+
+        .excel-table td,
+        .excel-table th {
+            border: 1px solid var(--border-color);
+            padding: 1.5mm 2mm;
+            vertical-align: middle;
+            word-wrap: break-word;
+            overflow: hidden;
+            white-space: pre-wrap;
+            text-align: left;
+            background: white;
+        }
+
+        /* Header Cells */
+        .excel-table .header-cell {
+            background: var(--header-bg);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Category Cells */
+        .excel-table .category-cell {
+            background: var(--category-bg);
+            font-weight: 600;
+        }
+
+        /* Highlight Cells */
+        .excel-table .highlight-cell {
+            background: var(--highlight-bg);
+        }
+
+        /* Level Markers */
+        .excel-table .level-cell {
+            text-align: center;
+            font-weight: bold;
+            font-size: 10pt;
+        }
+
+        /* First Row Border */
+        .excel-table tr:first-child td {
+            border-top: 2px solid #333;
+        }
+
+        /* Empty Cells */
+        .excel-table td.empty-cell {
+            background: #fafafa;
+        }
+
+        /* Profile Section */
+        .profile-table {
+            margin-bottom: 5mm;
+        }
+
+        .profile-table td {
+            height: 7mm;
+        }
+
+        .profile-table .label-cell {
+            background: #e8eaf6;
+            font-weight: 500;
+            width: 15%;
+            text-align: center;
+        }
+
+        .profile-table .value-cell {
+            width: 35%;
+        }
+
+        /* Skills Section */
+        .skills-table {
+            margin-top: 3mm;
+        }
+
+        .skills-table .skill-name {
+            font-weight: 500;
+        }
+
+        .skills-table .skill-level {
+            text-align: center;
+            width: 8%;
+        }
+
+        .skills-table .skill-exp {
+            text-align: center;
+            width: 12%;
+        }
+
+        /* Projects Section */
+        .projects-table td {
+            font-size: 7.5pt;
+        }
+
+        .projects-table .project-num {
+            text-align: center;
+            width: 4%;
+            font-weight: bold;
+        }
+
+        .projects-table .project-content {
+            width: 25%;
+        }
+
+        .projects-table .project-role {
+            width: 10%;
+        }
+
+        .projects-table .project-tech {
+            width: 12%;
+        }
+
+        .projects-table .project-env {
+            width: 12%;
+        }
+
+        .projects-table .project-phase {
+            width: 10%;
+        }
+
+        .projects-table .project-period {
+            width: 8%;
+            text-align: center;
+        }
+
+        .projects-table .project-duration {
+            width: 7%;
+            text-align: center;
+        }
+
+        /* Ranking Legend */
+        .ranking-legend {
+            font-size: 7pt;
+            margin-top: 2mm;
+        }
+
+        .ranking-legend td {
+            padding: 1mm 2mm;
+            border: 1px solid #ccc;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .page-container {
+                width: 100%;
+                height: auto;
+                margin: 0;
+                padding: 5mm;
+                box-shadow: none;
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+
+            .excel-table {
+                page-break-inside: auto;
+            }
+
+            .excel-table tr {
+                page-break-inside: avoid;
+                page-break-after: auto;
+            }
+        }
+
+        @page {
+            size: A4 landscape;
+            margin: 8mm;
+        }
+
+        /* Section Breaks */
+        .section-divider {
+            height: 3mm;
+            border: none;
+            background: transparent;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: flex;
+            gap: 5mm;
+        }
+
+        .two-column .left-column {
+            flex: 6;
+        }
+
+        .two-column .right-column {
+            flex: 4;
+        }
+
+        /* Bullet Marker */
+        .bullet {
+            font-size: 14pt;
+            color: #1a237e;
+        }
+    </style>
+</head>
+<body>
+
+{% for sheet in sheets %}
+<div class="page-container" id="sheet-{{ loop.index }}">
+
+    {% if loop.first %}
+    <h1 class="sheet-title">情 報 処 理 技 術 者 経 歴 書</h1>
+    {% endif %}
+
+    <table class="excel-table">
+        {% for row in sheet.cells %}
+        {% set row_has_content = false %}
+        {% for cell in row %}
+            {% if cell.value and cell.value.strip() %}
+                {% set row_has_content = true %}
+            {% endif %}
+        {% endfor %}
+
+        {% if row_has_content %}
+        <tr style="height: {{ sheet.row_heights[loop.index0] if loop.index0 < (sheet.row_heights|length) else 18 }}px;">
+            {% for cell in row %}
+            {% if not cell.is_merged_hidden %}
+            <td
+                {% if cell.rowspan > 1 %}rowspan="{{ cell.rowspan }}"{% endif %}
+                {% if cell.colspan > 1 %}colspan="{{ cell.colspan }}"{% endif %}
+                style="width: {{ cell.width }}px;"
+                class="
+                    {% if not cell.value or not cell.value.strip() %}empty-cell{% endif %}
+                    {% if cell.value %}
+                        {% if '氏名' in cell.value or '出身校' in cell.value or '対応可能分野' in cell.value or '業務経験' in cell.value or '自己PR' in cell.value or '序数' in cell.value or '業務内容' in cell.value or '役割' in cell.value or '使用言語' in cell.value or '環境' in cell.value or '担当フェーズ' in cell.value or '開始' in cell.value or '期間' in cell.value or 'ランキング' in cell.value %}header-cell{% endif %}
+                        {% if 'プログラミング言語' in cell.value or 'フレームワーク' in cell.value or 'クラウド' in cell.value or 'データベース' in cell.value or 'ドメイン' in cell.value %}category-cell{% endif %}
+                        {% if '●' in cell.value %}level-cell{% endif %}
+                    {% endif %}
+                "
+            >{{ cell.value | replace('\n', '<br>') | safe if cell.value else '&nbsp;' }}</td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+
+</div>
+{% endfor %}
+
+</body>
+</html>
