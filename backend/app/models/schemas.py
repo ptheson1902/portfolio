@@ -115,7 +115,7 @@ class ProfileUpdate(BaseModel):
     japanese_level: Optional[str] = None
     email: Optional[str] = None
     phone: Optional[str] = None
-    address: Optional[MultilingualText] = None
+    address: Optional[str] = None  # Single language address (current language)
     social_links: Optional[SocialLinks] = None
 
 

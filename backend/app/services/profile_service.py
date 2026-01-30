@@ -79,7 +79,16 @@ class ProfileService:
         # Filter out None values
         update_dict = {k: v for k, v in update_data.items() if v is not None}
 
-        self.repo.update_profile(**update_dict)
+        # Handle address update specially (multilingual)
+        if 'address' in update_dict:
+            address_value = update_dict.pop('address')
+            if address_value:
+                self.repo.update_address(lang, address_value)
+
+        # Update other fields
+        if update_dict:
+            self.repo.update_profile(**update_dict)
+
         return self.get_profile(lang, role)
 
     def update_self_pr(self, lang: Language, content: str, role: Role) -> ProfileResponse:

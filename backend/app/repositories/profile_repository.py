@@ -96,6 +96,19 @@ class ProfileRepository(BaseRepository[Profile]):
             self.db.refresh(profile)
         return profile
 
+    def update_address(self, lang: Language, content: str) -> Optional[Profile]:
+        """Update address for a specific language."""
+        profile = self.get_profile()
+        if profile:
+            if not profile.address:
+                profile.address = {}
+            address = dict(profile.address)
+            address[lang.value] = content
+            profile.address = address
+            self.db.commit()
+            self.db.refresh(profile)
+        return profile
+
     def update_self_pr(self, lang: Language, content: str) -> Optional[Profile]:
         """Update self_pr for a specific language."""
         profile = self.get_profile()
