@@ -34,7 +34,8 @@ echo -e "${YELLOW}[1/7] Updating system...${NC}"
 sudo apt update && sudo apt upgrade -y
 
 echo -e "${YELLOW}[2/7] Installing dependencies...${NC}"
-sudo apt install -y python3-pip python3-venv python3-dev git nginx
+sudo apt install -y python3-pip python3-venv python3-dev git nginx \
+    libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info
 
 # Install Node.js (latest)
 echo -e "${YELLOW}[3/7] Installing Node.js...${NC}"
