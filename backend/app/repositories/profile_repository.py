@@ -1,10 +1,26 @@
 """Profile repository for database access."""
 from typing import Dict, Any, Optional
+from datetime import date
 from sqlalchemy.orm import Session
 
 from ..models.db_models import Profile, RoleEmphasis
 from ..models.schemas import Language, Role
 from .base import BaseRepository
+
+
+def calculate_age(birth_date_str: str) -> int:
+    """Calculate age from date of birth string (YYYY-MM-DD)."""
+    if not birth_date_str:
+        return 0
+    try:
+        birth_date = date.fromisoformat(birth_date_str)
+        today = date.today()
+        age = today.year - birth_date.year
+        if (today.month, today.day) < (birth_date.month, birth_date.day):
+            age -= 1
+        return age
+    except ValueError:
+        return 0
 
 
 class ProfileRepository(BaseRepository[Profile]):
@@ -40,18 +56,31 @@ class ProfileRepository(BaseRepository[Profile]):
         if role_emphasis and role_emphasis.keywords:
             emphasis_keywords = role_emphasis.keywords.get(lang.value, [])
 
+        # Calculate age from date of birth
+        age = calculate_age(profile.date_of_birth) if profile.date_of_birth else 0
+
+        # Extract language-specific address
+        address = ""
+        if profile.address:
+            address = profile.address.get(lang.value, profile.address.get("ja", ""))
+
         return {
             "name": profile.name,
             "name_kana": profile.name_kana,
             "name_vi": profile.name_vi,
             "gender": profile.gender,
-            "age": profile.age,
+            "date_of_birth": profile.date_of_birth,
+            "age": age,
             "school": profile.school,
             "graduation_year": profile.graduation_year,
             "field": profile.field,
             "work_experience": profile.work_experience,
             "japan_residence": profile.japan_residence,
             "japanese_level": profile.japanese_level,
+            "email": profile.email,
+            "phone": profile.phone,
+            "address": address,
+            "social_links": profile.social_links,
             "self_pr": self_pr,
             "role_emphasis": emphasis_keywords
         }

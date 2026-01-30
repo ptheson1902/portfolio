@@ -2,7 +2,7 @@
 from typing import Dict, Any, Optional
 from sqlalchemy.orm import Session
 
-from ..models.schemas import Language, Role, ProfileResponse, Profile as ProfileSchema
+from ..models.schemas import Language, Role, ProfileResponse, Profile as ProfileSchema, SocialLinks
 from ..repositories.profile_repository import ProfileRepository
 
 
@@ -20,16 +20,30 @@ class ProfileService:
         if not profile_data:
             raise ValueError("Profile not found")
 
+        # Build social links if available
+        social_links = None
+        if profile_data.get("social_links"):
+            social_links = SocialLinks(
+                facebook=profile_data["social_links"].get("facebook"),
+                messenger=profile_data["social_links"].get("messenger"),
+                github=profile_data["social_links"].get("github")
+            )
+
         profile = ProfileSchema(
             name=profile_data["name"],
             name_kana=profile_data["name_kana"],
             gender=profile_data["gender"],
+            date_of_birth=profile_data.get("date_of_birth"),
             age=profile_data["age"],
             school=f"{profile_data['school']} ({profile_data['graduation_year']})",
             field=profile_data["field"],
             work_experience=profile_data["work_experience"],
             japan_residence=profile_data["japan_residence"],
             japanese_level=profile_data["japanese_level"],
+            email=profile_data.get("email"),
+            phone=profile_data.get("phone"),
+            address=profile_data.get("address"),
+            social_links=social_links,
             self_pr=profile_data["self_pr"]
         )
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { GraduationCap, Briefcase, MapPin, Languages, CheckCircle, Plane, School, Building2, Globe2, Plus, Pencil, Trash2, Check, X, FileSpreadsheet, FileText, Globe } from 'lucide-react';
+import { GraduationCap, Briefcase, MapPin, Languages, CheckCircle, Plane, School, Building2, Globe2, Plus, Pencil, Trash2, Check, X, FileSpreadsheet, FileText, Globe, Mail, Phone, Calendar, Facebook, MessageCircle, Github } from 'lucide-react';
 import { useProfile, useProfileMutation } from '../hooks/useApi';
 import { useApp } from '../context/AppContext';
 import { useAuth } from '../context/AuthContext';
@@ -189,6 +189,27 @@ export const ProfileSection: React.FC = () => {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Date of Birth / Age */}
+              <div className="flex items-center space-x-3">
+                <div className="text-primary-600 dark:text-primary-400">
+                  <Calendar className="w-5 h-5" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    {language === 'ja' ? '年齢' : language === 'vi' ? 'Tuổi' : 'Age'}
+                  </p>
+                  <p className="font-medium text-slate-900 dark:text-slate-100">
+                    {profile.age}{language === 'ja' ? '歳' : language === 'vi' ? ' tuổi' : ' years old'}
+                    {profile.date_of_birth && (
+                      <span className="text-xs text-slate-500 ml-1">
+                        ({profile.date_of_birth})
+                      </span>
+                    )}
+                  </p>
+                </div>
+              </div>
+
+              {/* School */}
               <div className="flex items-center space-x-3">
                 <div className="text-primary-600 dark:text-primary-400">
                   <GraduationCap className="w-5 h-5" />
@@ -211,6 +232,7 @@ export const ProfileSection: React.FC = () => {
                 </div>
               </div>
 
+              {/* Work Experience */}
               <div className="flex items-center space-x-3">
                 <div className="text-primary-600 dark:text-primary-400">
                   <Briefcase className="w-5 h-5" />
@@ -233,6 +255,7 @@ export const ProfileSection: React.FC = () => {
                 </div>
               </div>
 
+              {/* Japan Residence */}
               <div className="flex items-center space-x-3">
                 <div className="text-primary-600 dark:text-primary-400">
                   <MapPin className="w-5 h-5" />
@@ -255,6 +278,7 @@ export const ProfileSection: React.FC = () => {
                 </div>
               </div>
 
+              {/* Japanese Level */}
               <div className="flex items-center space-x-3">
                 <div className="text-primary-600 dark:text-primary-400">
                   <Languages className="w-5 h-5" />
@@ -276,7 +300,106 @@ export const ProfileSection: React.FC = () => {
                   )}
                 </div>
               </div>
+
+              {/* Address */}
+              {profile.address && (
+                <div className="flex items-center space-x-3">
+                  <div className="text-primary-600 dark:text-primary-400">
+                    <Globe2 className="w-5 h-5" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      {language === 'ja' ? '住所' : language === 'vi' ? 'Địa chỉ' : 'Address'}
+                    </p>
+                    <p className="font-medium text-slate-900 dark:text-slate-100">
+                      {profile.address}
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* Email */}
+              {profile.email && (
+                <div className="flex items-center space-x-3">
+                  <div className="text-primary-600 dark:text-primary-400">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs text-slate-500 dark:text-slate-400">Email</p>
+                    <a
+                      href={`mailto:${profile.email}`}
+                      className="font-medium text-primary-600 dark:text-primary-400 hover:underline"
+                    >
+                      {profile.email}
+                    </a>
+                  </div>
+                </div>
+              )}
+
+              {/* Phone */}
+              {profile.phone && (
+                <div className="flex items-center space-x-3">
+                  <div className="text-primary-600 dark:text-primary-400">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      {language === 'ja' ? '電話番号' : language === 'vi' ? 'Số điện thoại' : 'Phone'}
+                    </p>
+                    <a
+                      href={`tel:${profile.phone}`}
+                      className="font-medium text-primary-600 dark:text-primary-400 hover:underline"
+                    >
+                      {profile.phone}
+                    </a>
+                  </div>
+                </div>
+              )}
             </div>
+
+            {/* Social Links */}
+            {profile.social_links && (
+              <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
+                <p className="text-xs text-slate-500 dark:text-slate-400 mb-2">
+                  {language === 'ja' ? 'SNS' : language === 'vi' ? 'Mạng xã hội' : 'Social'}
+                </p>
+                <div className="flex gap-3">
+                  {profile.social_links.facebook && (
+                    <a
+                      href={profile.social_links.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors"
+                      title="Facebook"
+                    >
+                      <Facebook className="w-5 h-5" />
+                    </a>
+                  )}
+                  {profile.social_links.messenger && (
+                    <a
+                      href={profile.social_links.messenger}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-lg hover:bg-purple-200 dark:hover:bg-purple-900/50 transition-colors"
+                      title="Messenger"
+                    >
+                      <MessageCircle className="w-5 h-5" />
+                    </a>
+                  )}
+                  {profile.social_links.github && (
+                    <a
+                      href={profile.social_links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                      title="GitHub"
+                    >
+                      <Github className="w-5 h-5" />
+                    </a>
+                  )}
+                </div>
+              </div>
+            )}
 
             {/* Export Buttons */}
             <div className="mt-6 pt-4 border-t border-slate-200 dark:border-slate-700">

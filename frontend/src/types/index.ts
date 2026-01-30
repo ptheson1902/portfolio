@@ -26,16 +26,27 @@ export interface Project {
   highlights: string[];
 }
 
+export interface SocialLinks {
+  facebook?: string;
+  messenger?: string;
+  github?: string;
+}
+
 export interface Profile {
   name: string;
   name_kana: string;
   gender: string;
+  date_of_birth?: string;
   age: number;
   school: string;
   field: string;
   work_experience: string;
   japan_residence: string;
   japanese_level: string;
+  email?: string;
+  phone?: string;
+  address?: string;
+  social_links?: SocialLinks;
   self_pr: string;
 }
 

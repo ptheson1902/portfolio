@@ -43,16 +43,27 @@ class Project(BaseModel):
     highlights: List[str]
 
 
+class SocialLinks(BaseModel):
+    facebook: Optional[str] = None
+    messenger: Optional[str] = None
+    github: Optional[str] = None
+
+
 class Profile(BaseModel):
     name: str
     name_kana: str
     gender: str
+    date_of_birth: Optional[str] = None
     age: int
     school: str
     field: str
     work_experience: str
     japan_residence: str
     japanese_level: str
+    email: Optional[str] = None
+    phone: Optional[str] = None
+    address: Optional[str] = None
+    social_links: Optional[SocialLinks] = None
     self_pr: str
 
 
@@ -95,13 +106,17 @@ class ProfileUpdate(BaseModel):
     name_kana: Optional[str] = None
     name_vi: Optional[str] = None
     gender: Optional[str] = None
-    age: Optional[int] = None
+    date_of_birth: Optional[str] = None
     school: Optional[str] = None
     graduation_year: Optional[int] = None
     field: Optional[str] = None
     work_experience: Optional[str] = None
     japan_residence: Optional[str] = None
     japanese_level: Optional[str] = None
+    email: Optional[str] = None
+    phone: Optional[str] = None
+    address: Optional[MultilingualText] = None
+    social_links: Optional[SocialLinks] = None
 
 
 class SelfPrUpdate(BaseModel):

@@ -14,13 +14,21 @@ class Profile(Base):
     name_kana = Column(String(100))  # Japanese phonetic
     name_vi = Column(String(100))    # Vietnamese name
     gender = Column(String(10))
-    age = Column(Integer)
+    date_of_birth = Column(String(10))  # YYYY-MM-DD format
     school = Column(String(200))
     graduation_year = Column(Integer)
     field = Column(String(200))
     work_experience = Column(String(50))
     japan_residence = Column(String(50))
     japanese_level = Column(String(10))
+
+    # Contact information
+    email = Column(String(100))
+    phone = Column(String(20))
+    # Multilingual address as JSON: {"ja": "...", "vi": "...", "en": "..."}
+    address = Column(JSON, default={})
+    # Social links as JSON: {"facebook": "...", "messenger": "...", "github": "..."}
+    social_links = Column(JSON, default={})
 
     # Multilingual self-PR as JSON: {"ja": "...", "vi": "...", "en": "..."}
     self_pr = Column(JSON, nullable=False, default={})

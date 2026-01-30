@@ -14,13 +14,25 @@ def get_initial_data():
         "name_kana": "ファム テ ソン",
         "name_vi": "PHẠM THẾ SƠN",
         "gender": "male",
-        "age": 28,
+        "date_of_birth": "1997-02-19",
         "school": "ECCコンピュータ専門学校",
         "graduation_year": 2022,
         "field": "WEB開発（フルスタック）、システム開発",
         "work_experience": "4年",
         "japan_residence": "9年",
         "japanese_level": "N2",
+        "email": "ptheson1902@gmail.com",
+        "phone": "080-1234-5678",
+        "address": {
+            "ja": "大阪府大阪市",
+            "vi": "Thành phố Osaka, Osaka",
+            "en": "Osaka City, Osaka"
+        },
+        "social_links": {
+            "facebook": "https://www.facebook.com/ptheson1902",
+            "messenger": "https://m.me/ptheson1902",
+            "github": "https://github.com/ptheson1902"
+        },
         "self_pr": {
             "ja": """【強み】チームリーダー × BrSE × フルスタック × AI開発
 
@@ -426,13 +438,17 @@ def seed_database():
                 name_kana=profile_data["name_kana"],
                 name_vi=profile_data["name_vi"],
                 gender=profile_data["gender"],
-                age=profile_data["age"],
+                date_of_birth=profile_data["date_of_birth"],
                 school=profile_data["school"],
                 graduation_year=profile_data["graduation_year"],
                 field=profile_data["field"],
                 work_experience=profile_data["work_experience"],
                 japan_residence=profile_data["japan_residence"],
                 japanese_level=profile_data["japanese_level"],
+                email=profile_data["email"],
+                phone=profile_data["phone"],
+                address=profile_data["address"],
+                social_links=profile_data["social_links"],
                 self_pr=profile_data["self_pr"]
             )
             db.add(profile)
