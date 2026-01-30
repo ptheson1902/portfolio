@@ -36,9 +36,9 @@ sudo apt update && sudo apt upgrade -y
 echo -e "${YELLOW}[2/7] Installing dependencies...${NC}"
 sudo apt install -y python3-pip python3-venv python3-dev git nginx
 
-# Install Node.js 22 LTS
-echo -e "${YELLOW}[3/7] Installing Node.js 22 LTS...${NC}"
-curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+# Install Node.js (latest)
+echo -e "${YELLOW}[3/7] Installing Node.js...${NC}"
+curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 sudo apt install -y nodejs
 
 # Clone repository if not exists
