@@ -1,0 +1,108 @@
+{
+  "nav": {
+    "profile": "プロフィール",
+    "skills": "スキル",
+    "projects": "プロジェクト",
+    "chat": "AIチャット"
+  },
+  "role": {
+    "leader": "エンジニアリングリーダー",
+    "brse": "BrSE",
+    "fullstack": "フルスタックエンジニア",
+    "select": "役割を選択"
+  },
+  "language": {
+    "ja": "日本語",
+    "vi": "Tiếng Việt",
+    "en": "English",
+    "select": "言語"
+  },
+  "theme": {
+    "light": "ライト",
+    "dark": "ダーク"
+  },
+  "profile": {
+    "title": "プロフィール",
+    "name": "氏名",
+    "age": "年齢",
+    "school": "出身校",
+    "field": "対応可能分野",
+    "experience": "業務経験",
+    "japanResidence": "日本在住",
+    "japaneseLevel": "日本語レベル",
+    "selfPr": "自己PR",
+    "emphasis": "アピールポイント"
+  },
+  "skills": {
+    "title": "スキル",
+    "programming": "プログラミング言語",
+    "frameworks": "フレームワーク / IDE",
+    "databases": "データベース",
+    "cloud": "クラウドサービス",
+    "other": "AI / ML",
+    "level": "レベル",
+    "experience": "経験"
+  },
+  "projects": {
+    "title": "プロジェクト経験",
+    "role": "役割",
+    "teamSize": "チーム規模",
+    "duration": "期間",
+    "technologies": "使用技術",
+    "phases": "担当フェーズ",
+    "description": "業務内容",
+    "highlights": "ハイライト",
+    "featured": "注目プロジェクト"
+  },
+  "chat": {
+    "title": "AIチャット",
+    "placeholder": "質問を入力してください...",
+    "send": "送信",
+    "mode": "回答モード",
+    "single": "単一言語",
+    "bilingual": "バイリンガル (日越)",
+    "welcome": "スキルシートに基づいて、ご質問にお答えします。",
+    "examples": {
+      "title": "質問例",
+      "leader": [
+        "チームをどのようにリードしましたか？",
+        "設計判断で重視した点は？",
+        "技術的な意思決定の経験は？"
+      ],
+      "brse": [
+        "要件定義の経験は？",
+        "日本側との調整はどう行いましたか？",
+        "ブリッジSEとしての役割は？"
+      ],
+      "fullstack": [
+        "フロントエンドとバックエンドの担当範囲は？",
+        "使用した技術スタックは？",
+        "データベース設計の経験は？"
+      ]
+    }
+  },
+  "common": {
+    "years": "年",
+    "months": "ヶ月",
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました"
+  },
+  "admin": {
+    "login": "管理者ログイン",
+    "loginTitle": "管理者認証",
+    "tokenLabel": "管理者トークン",
+    "tokenPlaceholder": "トークンを入力...",
+    "verify": "認証",
+    "verifying": "認証中...",
+    "invalidToken": "無効なトークンです",
+    "logout": "ログアウト",
+    "enterEdit": "編集モード開始",
+    "exitEdit": "編集モード終了",
+    "export": "履歴書をエクスポート",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "add": "追加",
+    "confirmDelete": "本当に削除しますか？"
+  }
+}

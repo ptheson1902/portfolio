@@ -1,0 +1,108 @@
+{
+  "nav": {
+    "profile": "Profile",
+    "skills": "Skills",
+    "projects": "Projects",
+    "chat": "AI Chat"
+  },
+  "role": {
+    "leader": "Engineering Leader",
+    "brse": "BrSE",
+    "fullstack": "Fullstack Engineer",
+    "select": "Select Role"
+  },
+  "language": {
+    "ja": "日本語",
+    "vi": "Tiếng Việt",
+    "en": "English",
+    "select": "Language"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "profile": {
+    "title": "Profile",
+    "name": "Name",
+    "age": "Age",
+    "school": "Education",
+    "field": "Field",
+    "experience": "Experience",
+    "japanResidence": "Japan Residence",
+    "japaneseLevel": "Japanese Level",
+    "selfPr": "Self Introduction",
+    "emphasis": "Key Strengths"
+  },
+  "skills": {
+    "title": "Skills",
+    "programming": "Programming Languages",
+    "frameworks": "Frameworks / IDE",
+    "databases": "Databases",
+    "cloud": "Cloud Services",
+    "other": "AI / ML",
+    "level": "Level",
+    "experience": "Experience"
+  },
+  "projects": {
+    "title": "Project Experience",
+    "role": "Role",
+    "teamSize": "Team Size",
+    "duration": "Duration",
+    "technologies": "Technologies",
+    "phases": "Phases",
+    "description": "Description",
+    "highlights": "Highlights",
+    "featured": "Featured Projects"
+  },
+  "chat": {
+    "title": "AI Chat",
+    "placeholder": "Enter your question...",
+    "send": "Send",
+    "mode": "Answer Mode",
+    "single": "Single Language",
+    "bilingual": "Bilingual (JP-VN)",
+    "welcome": "I will answer questions based on the skill sheet.",
+    "examples": {
+      "title": "Example Questions",
+      "leader": [
+        "How did you lead the team?",
+        "Key points in design decisions?",
+        "Technical decision-making experience?"
+      ],
+      "brse": [
+        "Requirements definition experience?",
+        "How did you coordinate with Japan?",
+        "Bridge SE role?"
+      ],
+      "fullstack": [
+        "Frontend and backend scope?",
+        "Tech stack used?",
+        "Database design experience?"
+      ]
+    }
+  },
+  "common": {
+    "years": "years",
+    "months": "months",
+    "loading": "Loading...",
+    "error": "An error occurred"
+  },
+  "admin": {
+    "login": "Admin Login",
+    "loginTitle": "Admin Authentication",
+    "tokenLabel": "Admin Token",
+    "tokenPlaceholder": "Enter token...",
+    "verify": "Verify",
+    "verifying": "Verifying...",
+    "invalidToken": "Invalid token",
+    "logout": "Logout",
+    "enterEdit": "Enter Edit Mode",
+    "exitEdit": "Exit Edit Mode",
+    "export": "Export Resume",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "add": "Add",
+    "confirmDelete": "Are you sure you want to delete?"
+  }
+}

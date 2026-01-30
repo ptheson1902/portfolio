@@ -1,0 +1,108 @@
+{
+  "nav": {
+    "profile": "Hồ sơ",
+    "skills": "Kỹ năng",
+    "projects": "Dự án",
+    "chat": "AI Chat"
+  },
+  "role": {
+    "leader": "Engineering Leader",
+    "brse": "BrSE",
+    "fullstack": "Fullstack Engineer",
+    "select": "Chọn vai trò"
+  },
+  "language": {
+    "ja": "日本語",
+    "vi": "Tiếng Việt",
+    "en": "English",
+    "select": "Ngôn ngữ"
+  },
+  "theme": {
+    "light": "Sáng",
+    "dark": "Tối"
+  },
+  "profile": {
+    "title": "Hồ sơ",
+    "name": "Họ tên",
+    "age": "Tuổi",
+    "school": "Trường",
+    "field": "Lĩnh vực",
+    "experience": "Kinh nghiệm",
+    "japanResidence": "Thời gian ở Nhật",
+    "japaneseLevel": "Trình độ tiếng Nhật",
+    "selfPr": "Giới thiệu bản thân",
+    "emphasis": "Điểm mạnh"
+  },
+  "skills": {
+    "title": "Kỹ năng",
+    "programming": "Ngôn ngữ lập trình",
+    "frameworks": "Framework / IDE",
+    "databases": "Cơ sở dữ liệu",
+    "cloud": "Dịch vụ Cloud",
+    "other": "AI / ML",
+    "level": "Cấp độ",
+    "experience": "Kinh nghiệm"
+  },
+  "projects": {
+    "title": "Kinh nghiệm dự án",
+    "role": "Vai trò",
+    "teamSize": "Quy mô nhóm",
+    "duration": "Thời gian",
+    "technologies": "Công nghệ",
+    "phases": "Giai đoạn phụ trách",
+    "description": "Nội dung công việc",
+    "highlights": "Điểm nổi bật",
+    "featured": "Dự án tiêu biểu"
+  },
+  "chat": {
+    "title": "AI Chat",
+    "placeholder": "Nhập câu hỏi...",
+    "send": "Gửi",
+    "mode": "Chế độ trả lời",
+    "single": "Một ngôn ngữ",
+    "bilingual": "Song ngữ (Nhật-Việt)",
+    "welcome": "Tôi sẽ trả lời câu hỏi dựa trên skill sheet.",
+    "examples": {
+      "title": "Ví dụ câu hỏi",
+      "leader": [
+        "Bạn đã lãnh đạo nhóm như thế nào?",
+        "Điểm quan trọng trong quyết định thiết kế?",
+        "Kinh nghiệm ra quyết định kỹ thuật?"
+      ],
+      "brse": [
+        "Kinh nghiệm định nghĩa yêu cầu?",
+        "Cách điều phối với phía Nhật?",
+        "Vai trò Bridge SE?"
+      ],
+      "fullstack": [
+        "Phạm vi frontend và backend?",
+        "Tech stack đã sử dụng?",
+        "Kinh nghiệm thiết kế database?"
+      ]
+    }
+  },
+  "common": {
+    "years": "năm",
+    "months": "tháng",
+    "loading": "Đang tải...",
+    "error": "Đã xảy ra lỗi"
+  },
+  "admin": {
+    "login": "Đăng nhập Admin",
+    "loginTitle": "Xác thực Admin",
+    "tokenLabel": "Token Admin",
+    "tokenPlaceholder": "Nhập token...",
+    "verify": "Xác thực",
+    "verifying": "Đang xác thực...",
+    "invalidToken": "Token không hợp lệ",
+    "logout": "Đăng xuất",
+    "enterEdit": "Bắt đầu chỉnh sửa",
+    "exitEdit": "Thoát chỉnh sửa",
+    "export": "Xuất CV",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "delete": "Xóa",
+    "add": "Thêm",
+    "confirmDelete": "Bạn có chắc muốn xóa không?"
+  }
+}
