@@ -326,12 +326,9 @@ class XlsxExportService:
         work_experience = ""
         japan_residence = ""
         self_pr = ""
-        if profile.work_experience:
-            work_experience = profile.work_experience.get(lang.value, profile.work_experience.get("ja", "")) if profile.work_experience else ""
-        if profile.japan_residence:
-            japan_residence = profile.japan_residence.get(lang.value, profile.japan_residence.get("ja", "")) if profile.japan_residence else ""
-        if profile.self_pr:
-            self_pr = profile.self_pr.get(lang.value, profile.self_pr.get("ja", ""))
+        work_experience = profile.work_experience.get(lang.value, profile.work_experience.get("ja", "")) if profile.work_experience else ""
+        japan_residence = profile.japan_residence.get(lang.value, profile.japan_residence.get("ja", "")) if profile.japan_residence else ""
+        self_pr = profile.self_pr.get(lang.value, profile.self_pr.get("ja", "")) if profile.self_pr else ""
         # Update profile section
         ws['C4'] = profile.name_vi if lang == Language.VI else profile.name
         ws['F4'] = profile.name_kana
@@ -365,10 +362,10 @@ class XlsxExportService:
                         level_col = self.LEVEL_COLUMNS.get(level, 'N')
                         ws[f'{level_col}{row}'] = ' ● '
                     exp = skill.get('experience', '')
-                    ws[f'Q{row}'] = self._format_experience(exp)
+                    ws[f'Q{row}'] = exp
 
         # Update projects section
-        project_rows = [14, 18, 22, 26, 30, 34, 38, 42, 46, 50]
+        project_rows = [14, 22, 30, 38, 46, 54, 62, 70, 78, 86]
 
         for i, project in enumerate(projects):
             if i >= len(project_rows):
@@ -391,8 +388,8 @@ class XlsxExportService:
             ws[f'H{row}'] = project.get('start_date', '')
 
             end_date = project.get('end_date', '')
-            if end_date and row + 2 <= ws.max_row:
-                ws[f'H{row + 2}'] = end_date
+            if end_date and row + 4 <= ws.max_row:
+                ws[f'H{row + 4}'] = end_date
 
             ws[f'I{row}'] = project.get('duration', '')
 
