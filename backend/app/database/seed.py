@@ -17,80 +17,34 @@ def get_initial_data():
         "date_of_birth": "1997-02-19",
         "school": "ECCコンピュータ専門学校",
         "graduation_year": 2022,
-        "field": "WEB開発（フルスタック）、システム開発",
+        "field": "チームリーダー、WEB開発（フルスタック）、システム開発",
         "work_experience": {"ja": "5年", "vi": "5 năm", "en": "5 years"},
         "japan_residence": {"ja": "9年", "vi": "9 năm", "en": "9 years"},
         "japanese_level": "N2",
         "email": "ptheson1902@gmail.com",
-        "phone": "080-1234-5678",
+        "phone": "080-8536-1866",
         "address": {
-            "ja": "大阪府大阪市",
+            "ja": "大阪府大阪市生野区新今里７－４－６",
             "vi": "Thành phố Osaka, Osaka",
             "en": "Osaka City, Osaka"
         },
         "social_links": {
-            "facebook": "https://www.facebook.com/ptheson1902",
-            "messenger": "https://m.me/ptheson1902",
+            "facebook": "https://www.facebook.com/the.son.75",
+            "messenger": "https://m.me/the.son.75",
             "github": "https://github.com/ptheson1902"
         },
         "self_pr": {
-            "ja": """【強み】チームリーダー × BrSE × フルスタック × AI開発
-
-■ 経歴
-2017年にベトナムから来日。日本語学校（2年）→ ECCコンピュータ専門学校（3年）を経て、日系IT企業で1年間の実務経験を積みました。現在はベトナム系IT企業（4年目）にて、日本向けプロジェクトを担当しています。
-
-■ リーダーシップ経験
-直近のAIを活用した自動レジ精算システムでは、5名のチームリーダーとして基本設計から運用保守まで一貫して担当。技術選定、アーキテクチャ設計、コードレビュー、メンバー育成を通じて、プロジェクトを成功に導きました。
-
-■ BrSE（ブリッジSE）経験
-日本の顧客とベトナムオフショアチームの橋渡し役として、要件定義から品質管理まで担当。9年間の日本在住経験とN2レベルの日本語力を活かし、日越間のスムーズなコミュニケーションを実現しています。
-
-■ フルスタック開発力
-フロントエンド（VueJS, React）からバックエンド（ASP.NET Core, Laravel, Django）、データベース（Oracle, MySQL, SQL Server）まで幅広く対応。高速道路情報管理システムでは、詳細設計から現地試験・運用保守まで全工程を経験しました。
-
-■ AI/ML実践経験
-YOLOによるリアルタイム物体検出、Qdrant Vector DBによるベクトル検索、ByteTrackによるオブジェクトトラッキング、WebRTCによるリアルタイム映像配信など、最新のAI技術を実務で活用しています。
-
-■ 目指す姿
-技術力とコミュニケーション力を両立し、日本とベトナムの架け橋となりながら、チームとプロダクトの成長に貢献できるエンジニアを目指しています。""",
+            "ja": """日本向け案件を中心に、BrSE・チームリーダー・フルスタックエンジニアとしての経験を有しています。
+AIを活用した自動精算システムでは、5名チームのリーダーとして設計から運用まで担当。
+9年間の日本在住経験と日本語N2により、日越間の円滑なコミュニケーションと品質向上に貢献してきました。""",
             "vi": """【Điểm mạnh】Team Leader × BrSE × Fullstack × AI Development
-
-■ Quá trình
-Đến Nhật năm 2017. Trường tiếng Nhật (2 năm) → Trường chuyên môn ECC Computer (3 năm) → Công ty IT Nhật Bản (1 năm). Hiện tại đang làm việc tại công ty IT Việt Nam (năm thứ 4), phụ trách các dự án cho khách hàng Nhật Bản.
-
-■ Kinh nghiệm Leadership
-Trong dự án Hệ thống thanh toán tự động AI gần đây nhất, với vai trò Team Leader của nhóm 5 người, tôi phụ trách từ thiết kế cơ bản đến vận hành bảo trì. Dẫn dắt dự án thành công thông qua lựa chọn công nghệ, thiết kế kiến trúc, code review và đào tạo thành viên.
-
-■ Kinh nghiệm BrSE (Bridge SE)
-Là cầu nối giữa khách hàng Nhật Bản và đội offshore Việt Nam, phụ trách từ định nghĩa yêu cầu đến quản lý chất lượng. Với 9 năm sống tại Nhật và trình độ tiếng Nhật N2, tôi đảm bảo giao tiếp suôn sẻ giữa Nhật-Việt.
-
-■ Năng lực Fullstack
-Có khả năng xử lý từ Frontend (VueJS, React) đến Backend (ASP.NET Core, Laravel, Django) và Database (Oracle, MySQL, SQL Server). Trong dự án Hệ thống quản lý thông tin đường cao tốc, tôi đã trải nghiệm toàn bộ quy trình từ thiết kế chi tiết đến thử nghiệm thực tế và vận hành bảo trì.
-
-■ Kinh nghiệm AI/ML thực tế
-Ứng dụng các công nghệ AI tiên tiến trong thực tế: phát hiện vật thể real-time bằng YOLO, tìm kiếm vector với Qdrant Vector DB, object tracking với ByteTrack, streaming video real-time với WebRTC.
-
-■ Mục tiêu
-Trở thành kỹ sư có thể đóng góp cho sự phát triển của team và sản phẩm, kết hợp năng lực kỹ thuật và khả năng giao tiếp, làm cầu nối giữa Nhật Bản và Việt Nam.""",
+Kỹ sư IT có kinh nghiệm làm BrSE, team leader và full-stack cho các dự án thị trường Nhật.
+Từng dẫn dắt nhóm 5 người phát triển hệ thống thanh toán tự động sử dụng AI, tham gia từ thiết kế đến vận hành.
+Có 9 năm sống tại Nhật, giao tiếp tốt với khách hàng Nhật và team offshore Việt Nam.""",
             "en": """【Strengths】Team Leader × BrSE × Fullstack × AI Development
-
-■ Career Path
-Came to Japan in 2017. Japanese Language School (2 years) → ECC Computer College (3 years) → Japanese IT Company (1 year). Currently working at a Vietnamese IT company (4th year), handling projects for Japanese clients.
-
-■ Leadership Experience
-In the recent AI-powered Automatic Checkout System project, I led a team of 5 as Team Leader, handling everything from basic design to operation & maintenance. Successfully delivered the project through technology selection, architecture design, code review, and team mentoring.
-
-■ BrSE (Bridge SE) Experience
-Served as a bridge between Japanese clients and Vietnamese offshore team, responsible for requirements definition to quality management. With 9 years in Japan and N2 Japanese proficiency, I ensure smooth Japan-Vietnam communication.
-
-■ Fullstack Development
-Capable of handling Frontend (VueJS, React) to Backend (ASP.NET Core, Laravel, Django) and Database (Oracle, MySQL, SQL Server). In the Highway Information Management System, I experienced the entire process from detailed design to on-site testing and operation maintenance.
-
-■ Practical AI/ML Experience
-Applying cutting-edge AI technologies in production: real-time object detection with YOLO, vector search with Qdrant Vector DB, object tracking with ByteTrack, real-time video streaming with WebRTC.
-
-■ Vision
-I aim to be an engineer who contributes to team and product growth, combining technical skills with communication abilities, while serving as a bridge between Japan and Vietnam."""
+IT engineer with experience as BrSE, team leader, and full-stack developer for Japanese market projects.
+Led a 5-member team to develop an AI-based automated checkout system, handling design through operation.
+With 9 years of experience living in Japan and JLPT N2, I bridge Japanese clients and offshore teams effectively."""
         }
     }
 
@@ -143,9 +97,9 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "start_date": "2021-06",
             "end_date": "2021-08",
             "description": {
-                "ja": "【Java】プログラム基礎の理解、課題アプリの作成\n【Oracle】SQLの理解",
-                "vi": "【Java】Hiểu cơ bản về lập trình, tạo ứng dụng bài tập\n【Oracle】Hiểu SQL",
-                "en": "[Java] Understanding programming basics, creating practice applications\n[Oracle] Understanding SQL"
+                "ja": "・【Java】プログラム基礎の理解、課題アプリの作成\n・【Oracle】SQLの理解",
+                "vi": "・【Java】Hiểu cơ bản về lập trình, tạo ứng dụng bài tập\n・【Oracle】Hiểu SQL",
+                "en": "・[Java] Understanding programming basics, creating practice applications\n・[Oracle] Understanding SQL"
             },
             "highlights": {
                 "ja": ["Javaプログラミングの基礎習得", "SQLの基本操作"],
@@ -169,9 +123,9 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "start_date": "2021-09",
             "end_date": "2022-01",
             "description": {
-                "ja": "入力画面の新規開発を担当しました。新規登録、修正、削除、照会の画面を作成しました。入力に必須なマスタメンテナンス画面についても対応しました。",
-                "vi": "Phụ trách phát triển mới màn hình nhập liệu. Đã tạo các màn hình đăng ký mới, sửa đổi, xóa, và tra cứu. Cũng đã xử lý màn hình bảo trì master cần thiết cho việc nhập liệu.",
-                "en": "Responsible for new development of input screens. Created screens for new registration, modification, deletion, and inquiry. Also handled master maintenance screens required for input."
+                "ja": "・入力画面の新規開発を担当しました。\n・新規登録、修正、削除、照会の画面を作成しました。\n・入力に必須なマスタメンテナンス画面についても対応しました。",
+                "vi": "・Phụ trách phát triển mới màn hình nhập liệu. \n・Đã tạo các màn hình đăng ký mới, sửa đổi, xóa, và tra cứu. \n・Cũng đã xử lý màn hình bảo trì master cần thiết cho việc nhập liệu.",
+                "en": "・Responsible for new development of input screens. \n・Created screens for new registration, modification, deletion, and inquiry. \n・Also handled master maintenance screens required for input."
             },
             "highlights": {
                 "ja": ["CRUD機能の実装", "マスタメンテナンス画面の開発"],
@@ -195,9 +149,9 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "start_date": "2022-01",
             "end_date": "2022-07",
             "description": {
-                "ja": "画面の新規開発を担当しました。（新規登録、照会の画面の作成）バッチの作成も担当しました。",
-                "vi": "Phụ trách phát triển mới màn hình. (Tạo màn hình đăng ký mới, tra cứu) Cũng phụ trách tạo batch.",
-                "en": "Responsible for new screen development. (Creating new registration, inquiry screens) Also responsible for batch creation."
+                "ja": "・画面の新規開発を担当しました。\n・新規登録、編集、照会の画面の作成。\n・バッチの作成も担当しました。",
+                "vi": "・Phụ trách phát triển mới màn hình. \n・Tạo màn hình đăng ký mới, chỉnh sửa, tra cứu.\n・Tạo batch cũng được phụ trách.",
+                "en": "・Responsible for new screen development. \n・Creating new registration, edit, inquiry screens.\n・Also responsible for batch creation."
             },
             "highlights": {
                 "ja": ["新規画面開発", "バッチ処理の実装"],
@@ -221,9 +175,9 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "start_date": "2022-06",
             "end_date": "2022-08",
             "description": {
-                "ja": "ゲスト利用画面の新規開発を担当しました。（新規登録、照会、検索の画面の作成）DB更新、開発環境の作成",
-                "vi": "Phụ trách phát triển mới màn hình sử dụng cho khách. (Tạo màn hình đăng ký mới, tra cứu, tìm kiếm) Cập nhật DB, tạo môi trường phát triển",
-                "en": "Responsible for new development of guest usage screens. (Creating new registration, inquiry, search screens) DB update, development environment setup"
+                "ja": "・ゲスト利用画面の新規開発を担当しました。\n・新規登録、編集、照会、検索の画面の作成。\n・開発環境の構築も担当しました。",
+                "vi": "・Phụ trách phát triển mới màn hình sử dụng cho khách. \n・Tạo màn hình đăng ký mới, chỉnh sửa, tra cứu, tìm kiếm.\n・Tạo môi trường phát triển",
+                "en": "・Responsible for new development of guest usage screens. \n・Creating new registration, edit, inquiry, search screens.\n・Development environment setup"
             },
             "highlights": {
                 "ja": ["詳細設計への参加", "開発環境構築"],
@@ -299,9 +253,9 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "start_date": "2023-06",
             "end_date": "2023-11",
             "description": {
-                "ja": "帳票作成、更新、出力（Excel, PDF）。データ登録：CSVインポート、マスター登録、一括登録、複製登録、母国語対応",
-                "vi": "Tạo, cập nhật, xuất báo cáo (Excel, PDF). Đăng ký dữ liệu: Import CSV, đăng ký master, đăng ký hàng loạt, đăng ký sao chép, hỗ trợ ngôn ngữ mẹ đẻ",
-                "en": "Report creation, update, output (Excel, PDF). Data registration: CSV import, master registration, bulk registration, copy registration, native language support"
+                "ja": "・帳票作成、更新、出力（Excel, PDF）。\n・データ登録：CSVインポート、マスター登録、一括登録、複製登録、母国語対応",
+                "vi": "・Tạo, cập nhật, xuất báo cáo (Excel, PDF). \n・Đăng ký dữ liệu: Import CSV, đăng ký master, đăng ký hàng loạt, đăng ký sao chép, hỗ trợ ngôn ngữ mẹ đẻ",
+                "en": "・Report creation, update, output (Excel, PDF). \n・Data registration: CSV import, master registration, bulk registration, copy registration, native language support"
             },
             "highlights": {
                 "ja": ["Sub-BrSEとしての初めての経験", "帳票機能の実装", "多言語対応"],
@@ -325,9 +279,9 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "start_date": "2023-12",
             "end_date": "2024-12",
             "description": {
-                "ja": "交通管制データの連携及び活用：データ管理、帳票やCSVやPDFなど出力。データ統計：データ管理、帳票やCSVやPDFなど出力。道路状況：地図上のストリームカメラの管理。無線局管理：XMLファイル作成、申請履歴の管理、納付情報の管理、ユーザ情報の管理。バッチ改善を担当しました。",
-                "vi": "Liên kết và sử dụng dữ liệu điều khiển giao thông: Quản lý dữ liệu, xuất báo cáo/CSV/PDF. Thống kê dữ liệu. Tình trạng đường: Quản lý camera stream trên bản đồ. Quản lý trạm vô tuyến: Tạo file XML, quản lý lịch sử đăng ký, quản lý thông tin thanh toán, quản lý thông tin người dùng. Cải thiện batch.",
-                "en": "Traffic control data integration and utilization: Data management, report/CSV/PDF output. Data statistics. Road conditions: Stream camera management on maps. Radio station management: XML file creation, application history management, payment info management, user info management. Batch improvement."
+                "ja": "・交通管制データの連携及び活用：データ管理、帳票やCSVやPDFなど出力。\n・データ統計：データ管理、帳票やCSVやPDFなど出力。道路状況：地図上のストリームカメラの管理。\n・無線局管理：XMLファイル作成、申請履歴の管理、納付情報の管理、ユーザ情報の管理。\n・バッチ改善を担当しました。",
+                "vi": "・Liên kết và sử dụng dữ liệu điều khiển giao thông: Quản lý dữ liệu, xuất báo cáo/CSV/PDF. \n・Thống kê dữ liệu. \n・Tình trạng đường: Quản lý camera stream trên bản đồ. \n・Quản lý trạm vô tuyến: Tạo file XML, quản lý lịch sử đăng ký, quản lý thông tin thanh toán, quản lý thông tin người dùng. \n・Cải thiện batch.",
+                "en": "・Traffic control data integration and utilization: Data management, report/CSV/PDF output. \n・Data statistics. \n・Road conditions: Stream camera management on maps. \n・Radio station management: XML file creation, application history management, payment info management, user info management. \n・Batch improvement."
             },
             "highlights": {
                 "ja": ["フルスタック開発", "現地試験対応", "運用保守経験", "大規模システム"],
@@ -351,9 +305,9 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "start_date": "2025-01",
             "end_date": "2025-06",
             "description": {
-                "ja": "日本の顧客とオフショア開発チームのブリッジとして、要件定義、技術的な伝達、品質管理、日越間のコミュニケーションを担当。人物調査管理画面を担当。人事評価管理画面を担当。調査評価基準設定管理を担当。",
-                "vi": "Là cầu nối giữa khách hàng Nhật Bản và đội phát triển offshore, phụ trách định nghĩa yêu cầu, truyền đạt kỹ thuật, quản lý chất lượng, giao tiếp Nhật-Việt. Phụ trách màn hình quản lý điều tra nhân vật. Phụ trách màn hình quản lý đánh giá nhân sự. Phụ trách quản lý cài đặt tiêu chí đánh giá điều tra.",
-                "en": "As a bridge between Japanese clients and offshore development team, responsible for requirements definition, technical communication, quality management, Japan-Vietnam communication. Responsible for personnel investigation management screen. HR evaluation management screen. Investigation evaluation criteria setting management."
+                "ja": "日本の顧客とオフショア開発チームのブリッジとして\n・要件定義、技術的な伝達、品質管理、日越間のコミュニケーションを担当。\n・人物調査管理画面を担当。人事評価管理画面を担当。\n・調査評価基準設定管理を担当。",
+                "vi": "Là cầu nối giữa khách hàng Nhật Bản và đội phát triển offshore\n・Phụ trách định nghĩa yêu cầu, truyền đạt kỹ thuật, quản lý chất lượng, giao tiếp Nhật-Việt.\n・Phụ trách màn hình quản lý điều tra nhân vật.\n・Phụ trách màn hình quản lý đánh giá nhân sự. Phụ trách quản lý cài đặt tiêu chí đánh giá điều tra.",
+                "en": "As a bridge between Japanese clients and offshore development team\n・Responsible for requirements definition, technical communication, quality management, Japan-Vietnam communication. \n・Responsible for personnel investigation management screen. \n・HR evaluation management screen. \n・Investigation evaluation criteria setting management."
             },
             "highlights": {
                 "ja": ["BrSEとしての本格的な経験", "要件定義", "日越間コミュニケーション", "品質管理"],
@@ -377,9 +331,9 @@ I aim to be an engineer who contributes to team and product growth, combining te
             "start_date": "2025-06",
             "end_date": "2026-02",
             "description": {
-                "ja": "USBカメラで撮影した商品画像をリアルタイムで認識・分類し、レジ精算を自動化するエッジAIシステム。主な機能：YOLOベースのリアルタイム商品検出、ベクトル埋め込みによる商品分類（Qdrant Vector DB）、ByteTrackによるマルチオブジェクトトラッキング、WebRTCによるリアルタイム映像配信、クラウド同期機能（商品データベース同期）、商品登録機能（新商品の画像登録・学習）",
-                "vi": "Hệ thống Edge AI nhận dạng và phân loại hình ảnh sản phẩm quay bằng camera USB theo thời gian thực, tự động hóa thanh toán. Chức năng chính: Phát hiện sản phẩm thời gian thực dựa trên YOLO, Phân loại sản phẩm bằng vector embedding (Qdrant Vector DB), Theo dõi đa đối tượng bằng ByteTrack, Phát video thời gian thực bằng WebRTC, Đồng bộ cloud, Đăng ký sản phẩm mới",
-                "en": "Edge AI system that recognizes and classifies product images captured by USB camera in real-time, automating checkout. Main features: YOLO-based real-time product detection, Product classification by vector embedding (Qdrant Vector DB), Multi-object tracking with ByteTrack, Real-time video streaming via WebRTC, Cloud sync functionality, New product registration and training"
+                "ja": "USBカメラで撮影した商品画像をリアルタイムで認識・分類し、レジ精算を自動化するエッジAIシステム。\n主な機能：\n・YOLOベースのリアルタイム商品検出。\n・ベクトル埋め込みによる商品分類（Qdrant Vector DB）。\n・ByteTrackによるマルチオブジェクトトラッキング。\n・WebRTCによるリアルタイム映像配信。\n・クラウド同期機能（商品データベース同期）。\n・商品登録機能（新商品の画像登録・学習）",
+                "vi": "Hệ thống Edge AI nhận dạng và phân loại hình ảnh sản phẩm quay bằng camera USB theo thời gian thực, tự động hóa thanh toán. \nChức năng chính: \n・Phát hiện sản phẩm thời gian thực dựa trên YOLO.\n・Phân loại sản phẩm bằng vector embedding (Qdrant Vector DB).\n・Theo dõi đa đối tượng bằng ByteTrack.\n・Phát video thời gian thực bằng WebRTC.\n・Đồng bộ cloud.\n・Đăng ký sản phẩm mới.",
+                "en": "Edge AI system that recognizes and classifies product images captured by USB camera in real-time, automating checkout.\nMain features: \n・YOLO-based real-time product detection.\n・Product classification by vector embedding (Qdrant Vector DB).\n・Multi-object tracking with ByteTrack.\n・Real-time video streaming via WebRTC.\n・Cloud sync functionality.\n・New product registration and training"
             },
             "highlights": {
                 "ja": ["チームリーダーとしての経験", "AI/ML技術の実践", "システム設計", "フルスタック開発"],
