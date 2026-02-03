@@ -10,7 +10,7 @@ import xml.etree.ElementTree as ET
 from sqlalchemy.orm import Session
 
 from ..models.schemas import Language
-from ..repositories.profile_repository import ProfileRepository
+from ..repositories.profile_repository import ProfileRepository, calculate_age
 from ..repositories.skill_repository import SkillRepository
 from ..repositories.project_repository import ProjectRepository
 
@@ -321,18 +321,26 @@ class XlsxExportService:
         profile = data["profile"]
         skills = data["skills"]
         projects = data["projects"]
-
+        # Calculate age from date of birth
+        age = calculate_age(profile.date_of_birth) if profile.date_of_birth else 0
+        work_experience = ""
+        japan_residence = ""
+        self_pr = ""
+        if profile.work_experience:
+            work_experience = profile.work_experience.get(lang.value, profile.work_experience.get("ja", "")) if profile.work_experience else ""
+        if profile.japan_residence:
+            japan_residence = profile.japan_residence.get(lang.value, profile.japan_residence.get("ja", "")) if profile.japan_residence else ""
+        if profile.self_pr:
+            self_pr = profile.self_pr.get(lang.value, profile.self_pr.get("ja", ""))
         # Update profile section
         ws['C4'] = profile.name_vi if lang == Language.VI else profile.name
         ws['F4'] = profile.name_kana
         ws['C5'] = f"{profile.school}({profile.graduation_year}年卒業)"
-        ws['H5'] = profile.age
+        ws['H5'] = age
         ws['C6'] = profile.field
-        ws['C7'] = profile.work_experience
-        ws['F7'] = profile.japan_residence
+        ws['C7'] = work_experience
+        ws['F7'] = japan_residence
         ws['H7'] = profile.japanese_level
-
-        self_pr = profile.self_pr.get(lang.value, profile.self_pr.get("ja", "")) if profile.self_pr else ""
         ws['C9'] = self_pr  # Full self PR
 
         # Update skills section
@@ -402,11 +410,6 @@ class XlsxExportService:
         skills = data["skills"]
         projects = data["projects"]
 
-        # Get self_pr with proper language
-        self_pr = ""
-        if profile.self_pr:
-            self_pr = profile.self_pr.get(lang.value, profile.self_pr.get("ja", ""))
-
         # Build skills by category
         skill_categories = {
             "programming_languages": {"label": "プログラミング言語", "skills": []},
@@ -420,11 +423,14 @@ class XlsxExportService:
             if cat_key in skill_categories:
                 skill_categories[cat_key]["skills"] = skill_list
 
-        return self._render_html_template(profile, skill_categories, projects, self_pr, lang)
+        return self._render_html_template(profile, skill_categories, projects, lang)
 
-    def _render_html_template(self, profile, skill_categories, projects, self_pr, lang) -> str:
+    def _render_html_template(self, profile, skill_categories, projects, lang) -> str:
         """Render HTML template with data."""
-
+        age = calculate_age(profile.date_of_birth) if profile.date_of_birth else 0
+        work_experience = profile.work_experience.get(lang.value, profile.work_experience.get("ja", "")) if profile.work_experience else ""
+        japan_residence = profile.japan_residence.get(lang.value, profile.japan_residence.get("ja", "")) if profile.japan_residence else ""
+        self_pr = profile.self_pr.get(lang.value, profile.self_pr.get("ja", "")) if profile.self_pr else ""
         def level_dots(level: int) -> str:
             """Generate level indicator."""
             cols = ["", "", "", "", ""]
@@ -552,7 +558,7 @@ class XlsxExportService:
                     <td class="label">出身校</td>
                     <td class="value" colspan="4">''' + f"{profile.school}（{profile.graduation_year}年卒業）" + '''</td>
                     <td class="label">年齢</td>
-                    <td colspan="2">''' + str(profile.age) + '''</td>
+                    <td colspan="2">''' + str(age) + '''</td>
                 </tr>
                 <tr>
                     <td class="label">対応可能分野</td>
@@ -562,9 +568,9 @@ class XlsxExportService:
                 </tr>
                 <tr>
                     <td class="label">業務経験</td>
-                    <td class="value">''' + (profile.work_experience or "") + '''</td>
+                    <td class="value">''' + str(work_experience) + '''</td>
                     <td class="label">日本常駐</td>
-                    <td class="value" colspan="2">''' + (profile.japan_residence or "") + '''</td>
+                    <td class="value" colspan="2">''' + str(japan_residence) + '''</td>
                     <td class="label">日本語レベル</td>
                     <td colspan="2">''' + (profile.japanese_level or "") + '''</td>
                 </tr>
